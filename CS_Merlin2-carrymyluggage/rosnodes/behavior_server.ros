@@ -1,0 +1,117 @@
+PackageSet {
+    AmentPackage behavior_server {
+        Artifact behavior_server {
+            Node {
+                name behavior_server
+                ServiceServers {
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                Publishers {
+                    
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "bond" message "bond.Status"
+                    },
+                    Publisher {
+                        name "mobile_base_controller/cmd_vel" message "geometry_msgs.Twist"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "bond" message "bond.Status"
+                    },
+                    Subscriber {
+                        name "local_costmap/costmap_raw" message "nav2_msgs.Costmap"
+                    },
+                    Subscriber {
+                        name "local_costmap/published_footprint" message "geometry_msgs.PolygonStamped"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "backup" action "nav2_msgs.BackUp"
+                    },
+                    ActionServer {
+                        name "drive_on_heading" action "nav2_msgs.DriveOnHeading"
+                    },
+                    ActionServer {
+                        name "spin" action "nav2_msgs.Spin"
+                    },
+                    ActionServer {
+                        name "wait" action "nav2_msgs.Wait"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "backup.plugin" type String
+                    },
+                    Parameter {
+                        name "behavior_plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "costmap_topic" type String
+                    },
+                    Parameter {
+                        name "cycle_frequency" type Double
+                    },
+                    Parameter {
+                        name "drive_on_heading.plugin" type String
+                    },
+                    Parameter {
+                        name "footprint_topic" type String
+                    },
+                    Parameter {
+                        name "global_frame" type String
+                    },
+                    Parameter {
+                        name "max_rotational_vel" type Double
+                    },
+                    Parameter {
+                        name "min_rotational_vel" type Double
+                    },
+                    Parameter {
+                        name "robot_base_frame" type String
+                    },
+                    Parameter {
+                        name "rotational_acc_lim" type Double
+                    },
+                    Parameter {
+                        name "simulate_ahead_time" type Double
+                    },
+                    Parameter {
+                        name "spin.plugin" type String
+                    },
+                    Parameter {
+                        name "transform_tolerance" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "wait.plugin" type String
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+PackageSet{
+    Package rcl_interfaces{ Specs { 
+      TopicSpec "Parameter"{ message { string name ParameterValue value }},
+      TopicSpec IntegerRange{ message { int64 from_value int64 to_value uint64 step }},
+      TopicSpec ParameterDescriptor{ message { string name uint8 type string description string additional_constraints bool read_only bool dynamic_typing FloatingPointRange[] floating_point_range IntegerRange[] integer_range }},
+      TopicSpec ParameterEventDescriptors{ 
+          message { 
+          ParameterDescriptor[] new_parameters 
+          ParameterDescriptor[] changed_parameters 
+          ParameterDescriptor[] deleted_parameters
+      }},      
+      TopicSpec SetParametersResult{ 
+          message { bool successful string reason }
+      },
+      TopicSpec ParameterValue{ 
+          message { uint8 type bool bool_value int64 integer_value float64 double_value string string_value byte[] byte_array_value bool[] bool_array_value int64[] integer_array_value float64[] double_array_value string[] string_array_value }
+      },
+      ServiceSpec GetParameterTypes{ 
+          request { string[] names } 
+          response { uint8[] types }
+      },
+      TopicSpec ParameterType{ 
+          message { uint8 PARAMETER_NOT_SET=0 uint8 PARAMETER_BOOL=1 uint8 PARAMETER_INTEGER=2 uint8 PARAMETER_DOUBLE=3 uint8 PARAMETER_STRING=4 uint8 PARAMETER_BYTE_ARRAY=5 uint8 PARAMETER_BOOL_ARRAY=6 uint8 PARAMETER_INTEGER_ARRAY=7 uint8 PARAMETER_DOUBLE_ARRAY=8 uint8 PARAMETER_STRING_ARRAY=9 }
+      },
+      ServiceSpec SetParametersAtomically{ 
+          request { "Parameter"[] parameters } 
+          response { SetParametersResult result }
+      },
+      TopicSpec FloatingPointRange{ message { float64 from_value float64 to_value float64 step }},
+      TopicSpec ListParametersResult{ message { string[] names string[] prefixes }},
+      ServiceSpec DescribeParameters{ request { string[] names } response { ParameterDescriptor[] descriptors } },
+      ServiceSpec GetParameters{ request { string[] names } response { ParameterValue[] values } },
+      ServiceSpec ListParameters{ request { uint64 DEPTH_RECURSIVE=0 string[] prefixes uint64 depth } response { ListParametersResult result } },
+      ServiceSpec SetParameters{ request { "Parameter"[] parameters } response { SetParametersResult[] results } },
+      TopicSpec ParameterEvent{ message { "builtin_interfaces.Time" stamp string "node" "Parameter"[] new_parameters "Parameter"[] changed_parameters "Parameter"[] deleted_parameters }},
+      TopicSpec Log{ message { byte DEBUG=10 byte INFO=20 byte WARN=30 byte ERROR=40 byte FATAL=50 "builtin_interfaces.Time" stamp uint8 level string name string msg string file string function uint32 line }}
+    }}
+  }

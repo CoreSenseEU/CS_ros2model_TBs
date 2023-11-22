@@ -1,0 +1,53 @@
+PackageSet {
+    AmentPackage bt_navigator_navigate_to_pose_rclcpp_node {
+        Artifact bt_navigator_navigate_to_pose_rclcpp_node {
+            Node {
+                name bt_navigator_navigate_to_pose_rclcpp_node
+                Publishers {
+                    
+                    Publisher {
+                        name "behavior_tree_log" message "nav2_msgs.BehaviorTreeLog"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "global_costmap/clear_entirely_global_costmap" service "nav2_msgs.ClearEntireCostmap"
+                    },
+                    ServiceClient {
+                        name "local_costmap/clear_entirely_local_costmap" service "nav2_msgs.ClearEntireCostmap"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "backup" action "nav2_msgs.BackUp"
+                    },
+                    ActionClient {
+                        name "compute_path_to_pose" action "nav2_msgs.ComputePathToPose"
+                    },
+                    ActionClient {
+                        name "follow_path" action "nav2_msgs.FollowPath"
+                    },
+                    ActionClient {
+                        name "spin" action "nav2_msgs.Spin"
+                    },
+                    ActionClient {
+                        name "wait" action "nav2_msgs.Wait"
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+PackageSet {
+    AmentPackage yolo_bags_yolov8_node {
+        Artifact yolo_bags_yolov8_node {
+            Node {
+                name yolo_bags_yolov8_node
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "yolo/bags/enable" service "std_srvs.SetBool"
+                    }}
+                
+                Publishers {
+                    Publisher {
+                        name "yolo/bags/dbg_image" message "sensor_msgs.Image"
+                    },
+                    Publisher {
+                        name "yolo/bags/detections" message "vision_msgs.Detection2DArray"
+                    },
+                    Publisher {
+                        name "yolo/bags/keypoints" message "yolov8_msgs.PersonKeypoints2DArray"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "xtion/rgb/image_raw" message "sensor_msgs.Image"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "device" type String
+                    },
+                    Parameter {
+                        name "enable" type Boolean
+                    },
+                    Parameter {
+                        name "model" type String
+                    },
+                    Parameter {
+                        name "threshold" type Double
+                    },
+                    Parameter {
+                        name "tracker" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

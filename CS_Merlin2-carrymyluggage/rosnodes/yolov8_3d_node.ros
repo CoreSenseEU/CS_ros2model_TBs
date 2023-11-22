@@ -1,0 +1,31 @@
+PackageSet {
+    AmentPackage yolo_yolov8_3d_node {
+        Artifact yolo_yolov8_3d_node {
+            Node {
+                name yolo_yolov8_3d_node
+                Publishers {
+                    Publisher {
+                        name "yolo/detections3D" message "vision_msgs.Detection3DArray"
+                    },
+                    Publisher {
+                        name "yolo/markers" message "visualization_msgs.MarkerArray"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "xtion/depth/points" message "sensor_msgs.PointCloud2"
+                    },
+                    Subscriber {
+                        name "yolo/detections" message "vision_msgs.Detection2DArray"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

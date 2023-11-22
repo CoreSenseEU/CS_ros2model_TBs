@@ -1,0 +1,19 @@
+PackageSet {
+    AmentPackage carry_bag {
+        Artifact carry_bag {
+            Node {
+                name carry_bag
+                Publishers {
+                    Publisher {
+                        name "robotsound" message "sound_play.SoundRequest"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                }
+        }
+    }
+}

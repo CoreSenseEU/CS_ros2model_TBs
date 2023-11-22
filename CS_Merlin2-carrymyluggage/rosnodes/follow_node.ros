@@ -1,0 +1,80 @@
+PackageSet {
+    AmentPackage follow_follow_node {
+        Artifact follow_follow_node {
+            Node {
+                name follow_follow_node
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "follow/enable" service "std_srvs.SetBool"
+                    },
+                    ServiceServer {
+                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
+                    },
+                    ServiceServer {
+                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
+                    },
+                    ServiceServer {
+                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
+                    },
+                    ServiceServer {
+                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "follow/markers_follow" message "visualization_msgs.MarkerArray"
+                    },
+                    Publisher {
+                        name "goal_pose" message "geometry_msgs.PoseStamped"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    },
+                    Subscriber {
+                        name "tf_static" message "tf2_msgs.TFMessage"
+                    },
+                    Subscriber {
+                        name "yolo/detections3D" message "vision_msgs.Detection3DArray"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "follow_person" action "follow_ros_msgs.FollowPerson"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "dao_family" type Integer
+                    },
+                    Parameter {
+                        name "enable" type Boolean
+                    },
+                    Parameter {
+                        name "mongo_uri" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

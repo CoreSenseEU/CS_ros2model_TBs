@@ -1,0 +1,7 @@
+PackageSet{
+    Package builtin_interfaces{ Specs { 
+      TopicSpec Duration{ message { int32 sec uint32 nanosec }},
+      TopicSpec Time{ message { int32 sec uint32 nanosec }}
+    }}
+
+  }

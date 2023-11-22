@@ -1,0 +1,53 @@
+PackageSet {
+    AmentPackage rviz_navigation_dialog_action_client {
+        Artifact rviz_navigation_dialog_action_client {
+            Node {
+                name rviz_navigation_dialog_action_client
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    },
+                    Publisher {
+                        name "waypoints" message "visualization_msgs.MarkerArray"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "lifecycle_manager_localization/is_active" service "std_srvs.Trigger"
+                    },
+                    ServiceClient {
+                        name "lifecycle_manager_localization/manage_nodes" service "nav2_msgs.ManageLifecycleNodes"
+                    },
+                    ServiceClient {
+                        name "lifecycle_manager_navigation/is_active" service "std_srvs.Trigger"
+                    },
+                    ServiceClient {
+                        name "lifecycle_manager_navigation/manage_nodes" service "nav2_msgs.ManageLifecycleNodes"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "follow_waypoints" action "nav2_msgs.FollowWaypoints"
+                    },
+                    ActionClient {
+                        name "navigate_through_poses" action "nav2_msgs.NavigateThroughPoses"
+                    },
+                    ActionClient {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                }
+        }
+    }
+}

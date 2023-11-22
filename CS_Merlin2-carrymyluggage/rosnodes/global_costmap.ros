@@ -1,0 +1,275 @@
+PackageSet {
+    AmentPackage global_costmap_global_costmap {
+        Artifact global_costmap_global_costmap {
+            Node {
+                name global_costmap_global_costmap
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "global_costmap/clear_around_global_costmap" service "nav2_msgs.ClearCostmapAroundRobot"
+                    },
+                    ServiceServer {
+                        name "global_costmap/clear_entirely_global_costmap" service "nav2_msgs.ClearEntireCostmap"
+                    },
+                    ServiceServer {
+                        name "global_costmap/clear_except_global_costmap" service "nav2_msgs.ClearCostmapExceptRegion"
+                    },
+                    ServiceServer {
+                        name "global_costmap/get_costmap" service "nav2_msgs.GetCostmap"
+                    },
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceServer {
+                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
+                    },
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
+                    },
+                    ServiceServer {
+                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "global_costmap/costmap" message "nav_msgs.OccupancyGrid"
+                    },
+                    Publisher {
+                        name "global_costmap/costmap_raw" message "nav2_msgs.Costmap"
+                    },
+                    Publisher {
+                        name "global_costmap/costmap_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "global_costmap/published_footprint" message "geometry_msgs.PolygonStamped"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "global_costmap/footprint" message "geometry_msgs.Polygon"
+                    },
+                    Subscriber {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "scan" message "sensor_msgs.LaserScan"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "always_send_full_costmap" type Boolean
+                    },
+                    Parameter {
+                        name "clearable_layers" type Array {type String}
+                    },
+                    Parameter {
+                        name "filters" type Array {type String}
+                    },
+                    Parameter {
+                        name "footprint" type String
+                    },
+                    Parameter {
+                        name "footprint_padding" type Double
+                    },
+                    Parameter {
+                        name "global_frame" type String
+                    },
+                    Parameter {
+                        name "height" type Integer
+                    },
+                    Parameter {
+                        name "inflation_layer.cost_scaling_factor" type Double
+                    },
+                    Parameter {
+                        name "inflation_layer.enabled" type Boolean
+                    },
+                    Parameter {
+                        name "inflation_layer.inflate_around_unknown" type Boolean
+                    },
+                    Parameter {
+                        name "inflation_layer.inflate_unknown" type Boolean
+                    },
+                    Parameter {
+                        name "inflation_layer.inflation_radius" type Double
+                    },
+                    Parameter {
+                        name "inflation_layer.plugin" type String
+                    },
+                    Parameter {
+                        name "lethal_cost_threshold" type Integer
+                    },
+                    Parameter {
+                        name "map_topic" type String
+                    },
+                    Parameter {
+                        name "observation_sources" type String
+                    },
+                    Parameter {
+                        name "obstacle_layer.combination_method" type Integer
+                    },
+                    Parameter {
+                        name "obstacle_layer.enabled" type Boolean
+                    },
+                    Parameter {
+                        name "obstacle_layer.footprint_clearing_enabled" type Boolean
+                    },
+                    Parameter {
+                        name "obstacle_layer.max_obstacle_height" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.min_obstacle_height" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.observation_sources" type String
+                    },
+                    Parameter {
+                        name "obstacle_layer.plugin" type String
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.clearing" type Boolean
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.data_type" type String
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.expected_update_rate" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.inf_is_valid" type Boolean
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.marking" type Boolean
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.max_obstacle_height" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.min_obstacle_height" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.observation_persistence" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.obstacle_max_range" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.obstacle_min_range" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.raytrace_max_range" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.raytrace_min_range" type Double
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.sensor_frame" type String
+                    },
+                    Parameter {
+                        name "obstacle_layer.scan.topic" type String
+                    },
+                    Parameter {
+                        name "origin_x" type Double
+                    },
+                    Parameter {
+                        name "origin_y" type Double
+                    },
+                    Parameter {
+                        name "plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "publish_frequency" type Double
+                    },
+                    Parameter {
+                        name "resolution" type Double
+                    },
+                    Parameter {
+                        name "robot_base_frame" type String
+                    },
+                    Parameter {
+                        name "robot_radius" type Double
+                    },
+                    Parameter {
+                        name "rolling_window" type Boolean
+                    },
+                    Parameter {
+                        name "static_layer.enabled" type Boolean
+                    },
+                    Parameter {
+                        name "static_layer.map_subscribe_transient_local" type Boolean
+                    },
+                    Parameter {
+                        name "static_layer.map_topic" type String
+                    },
+                    Parameter {
+                        name "static_layer.plugin" type String
+                    },
+                    Parameter {
+                        name "static_layer.subscribe_to_updates" type Boolean
+                    },
+                    Parameter {
+                        name "static_layer.transform_tolerance" type Double
+                    },
+                    Parameter {
+                        name "track_unknown_space" type Boolean
+                    },
+                    Parameter {
+                        name "transform_tolerance" type Double
+                    },
+                    Parameter {
+                        name "trinary_costmap" type Boolean
+                    },
+                    Parameter {
+                        name "unknown_cost_value" type Integer
+                    },
+                    Parameter {
+                        name "update_frequency" type Double
+                    },
+                    Parameter {
+                        name "use_maximum" type Boolean
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "width" type Integer
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+PackageSet {
+    AmentPackage ros1_bridge1 {
+        Artifact ros1_bridge1 {
+            Node {
+                name ros1_bridge1
+                Publishers {
+                    
+                    Publisher {
+                        name "mobile_base_controller/odom" message "nav_msgs.Odometry"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                }
+        }
+    }
+}

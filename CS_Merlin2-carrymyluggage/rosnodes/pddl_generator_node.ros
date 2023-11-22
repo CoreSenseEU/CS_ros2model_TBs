@@ -1,0 +1,53 @@
+PackageSet {
+    AmentPackage merlin2_pddl_generator_node {
+        Artifact merlin2_pddl_generator_node {
+            Node {
+                name merlin2_pddl_generator_node
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "merlin2/generate_pddl" service "merlin2_msgs.GeneratePddl"
+                    },
+                    ServiceServer {
+                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
+                    },
+                    ServiceServer {
+                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
+                    },
+                    ServiceServer {
+                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
+                    },
+                    ServiceServer {
+                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "dao_family" type Integer
+                    },
+                    Parameter {
+                        name "mongo_uri" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

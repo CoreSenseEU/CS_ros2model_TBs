@@ -1,0 +1,22 @@
+PackageSet {
+    AmentPackage ros1_bridge0 {
+        Artifact ros1_bridge0 {
+            Node {
+                name ros1_bridge0
+                Subscribers {
+                    
+                    Subscriber {
+                        name "mobile_base_controller/cmd_vel" message "geometry_msgs.Twist"
+                    }}
+                
+                Parameters {
+                    Parameter {
+                        name "topic_name" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

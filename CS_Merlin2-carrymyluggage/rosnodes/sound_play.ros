@@ -1,0 +1,47 @@
+PackageSet {
+    AmentPackage sound_play {
+        Artifact sound_play {
+            Node {
+                name sound_play
+                Publishers {
+                    
+                    Publisher {
+                        name "diagnostics" message "diagnostic_msgs.DiagnosticArray"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "robotsound" message "sound_play.SoundRequest"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "~" action "sound_play.SoundRequestAct"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "default_voice" type String
+                    },
+                    Parameter {
+                        name "device" type String
+                    },
+                    Parameter {
+                        name "loop_rate" type Integer
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

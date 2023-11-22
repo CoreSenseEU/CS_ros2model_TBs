@@ -1,0 +1,53 @@
+PackageSet {
+    AmentPackage merlin2_executor_node {
+        Artifact merlin2_executor_node {
+            Node {
+                name merlin2_executor_node
+                Publishers {
+                    
+                    Publisher {
+                        name "fsm_viewer" message "yasmin_msgs.StateMachine"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "merlin2/generate_pddl" service "merlin2_msgs.GeneratePddl"
+                    },
+                    ServiceClient {
+                        name "merlin2/generate_plan" service "merlin2_msgs.GeneratePlan"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "merlin2/execute" action "merlin2_msgs.Execute"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "merlin2/dispatch_plan" action "merlin2_msgs.DispatchPlan"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "dao_family" type Integer
+                    },
+                    Parameter {
+                        name "mongo_uri" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

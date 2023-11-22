@@ -1,0 +1,21 @@
+PackageSet{
+    Package vision_msgs{ Specs { 
+      TopicSpec LabelInfo{ message { "std_msgs.Header" header "vision_msgs.VisionClass"[] class_map float32 threshold }},
+      TopicSpec Detection2D{ message { "std_msgs.Header" header ObjectHypothesisWithPose[] results BoundingBox2D bbox string id }},
+      TopicSpec Classification{ message { "std_msgs.Header" header ObjectHypothesis[] results }},
+      TopicSpec BoundingBox3D{ message { "geometry_msgs.Pose" center "geometry_msgs.Vector3" size }},
+      TopicSpec Detection3D{ message { "std_msgs.Header" header ObjectHypothesisWithPose[] results BoundingBox3D bbox string id }},
+      TopicSpec Detection3DArray{ message { "std_msgs.Header" header Detection3D[] detections }},
+      TopicSpec Detection2DArray{ message { "std_msgs.Header" header Detection2D[] detections }},
+      TopicSpec ObjectHypothesisWithPose{ message { ObjectHypothesis hypothesis "geometry_msgs.PoseWithCovariance" pose }},
+      TopicSpec Point2D{ message { float64 x float64 y }},
+      TopicSpec VisionInfo{ message { "std_msgs.Header" header string method string database_location int32 database_version }},
+      TopicSpec BoundingBox2D{ message { "vision_msgs.Pose2D" center float64 size_x float64 size_y }},
+      TopicSpec Pose2D{ message { "vision_msgs.Point2D" position float64 theta }},
+      TopicSpec BoundingBox2DArray{ message { "std_msgs.Header" header "vision_msgs.BoundingBox2D"[] boxes }},
+      TopicSpec VisionClass{ message { uint16 class_id string class_name }},
+      TopicSpec BoundingBox3DArray{ message { "std_msgs.Header" header "vision_msgs.BoundingBox3D"[] boxes }},
+      TopicSpec ObjectHypothesis{ message { string class_id float64 score }}
+    }}
+
+  }

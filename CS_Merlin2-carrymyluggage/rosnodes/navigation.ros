@@ -1,0 +1,80 @@
+PackageSet {
+    AmentPackage merlin2_navigation {
+        Artifact merlin2_navigation {
+            Node {
+                name merlin2_navigation
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "~" action "merlin2_msgs.DispatchAction"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "waypoint_navigation/navigate_to_wp" action "waypoint_navigation_msgs.NavigateToWp"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bt_file_path" type String
+                    },
+                    Parameter {
+                        name "dao_family" type Integer
+                    },
+                    Parameter {
+                        name "enable_groot_monitoring" type Boolean
+                    },
+                    Parameter {
+                        name "max_msg_per_second" type Integer
+                    },
+                    Parameter {
+                        name "mongo_uri" type String
+                    },
+                    Parameter {
+                        name "plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "publisher_port" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "server_port" type Integer
+                    },
+                    Parameter {
+                        name "tick_rate" type Integer
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

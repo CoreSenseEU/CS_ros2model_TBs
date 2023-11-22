@@ -1,0 +1,41 @@
+PackageSet {
+    AmentPackage merlin2_plan_dispatcher_node {
+        Artifact merlin2_plan_dispatcher_node {
+            Node {
+                name merlin2_plan_dispatcher_node
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "merlin2/dispatch_plan" action "merlin2_msgs.DispatchPlan"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "merlin2/detect_bag" action "merlin2_msgs.DispatchAction"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "dao_family" type Integer
+                    },
+                    Parameter {
+                        name "mongo_uri" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

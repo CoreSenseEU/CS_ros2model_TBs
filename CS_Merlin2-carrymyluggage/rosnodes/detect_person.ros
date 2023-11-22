@@ -1,0 +1,26 @@
+PackageSet {
+    AmentPackage merlin2_detect_person {
+        Artifact merlin2_detect_person {
+            Node {
+                name merlin2_detect_person
+                Publishers {
+                    
+                    Publisher {
+                        name "fsm_viewer" message "yasmin_msgs.StateMachine"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "~" action "merlin2_msgs.DispatchAction"
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,368 @@
+PackageSet {
+    AmentPackage controller_server {
+        Artifact controller_server {
+            Node {
+                name controller_server
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceServer {
+                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
+                    },
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
+                    },
+                    ServiceServer {
+                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "bond" message "bond.Status"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "cost_cloud" message "sensor_msgs.PointCloud2"
+                    },
+                    Publisher {
+                        name "evaluation" message "dwb_msgs.LocalPlanEvaluation"
+                    },
+                    Publisher {
+                        name "local_plan" message "nav_msgs.Path"
+                    },
+                    Publisher {
+                        name "marker" message "visualization_msgs.MarkerArray"
+                    },
+                    Publisher {
+                        name "mobile_base_controller/cmd_vel" message "geometry_msgs.Twist"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "received_global_plan" message "nav_msgs.Path"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    },
+                    Publisher {
+                        name "transformed_global_plan" message "nav_msgs.Path"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "bond" message "bond.Status"
+                    },
+                    Subscriber {
+                        name "odom" message "nav_msgs.Odometry"
+                    },
+                    Subscriber {
+                        name "speed_limit" message "nav2_msgs.SpeedLimit"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "follow_path" action "nav2_msgs.FollowPath"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.BaseObstacle.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.BaseObstacle.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.BaseObstacle.sum_scores" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.GoalAlign.aggregation_type" type String
+                    },
+                    Parameter {
+                        name "FollowPath.GoalAlign.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.GoalAlign.forward_point_distance" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.GoalAlign.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.GoalDist.aggregation_type" type String
+                    },
+                    Parameter {
+                        name "FollowPath.GoalDist.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.GoalDist.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.Oscillation.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.Oscillation.oscillation_reset_angle" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.Oscillation.oscillation_reset_dist" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.Oscillation.oscillation_reset_time" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.Oscillation.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.Oscillation.x_only_threshold" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.PathAlign.aggregation_type" type String
+                    },
+                    Parameter {
+                        name "FollowPath.PathAlign.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.PathAlign.forward_point_distance" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.PathAlign.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.PathDist.aggregation_type" type String
+                    },
+                    Parameter {
+                        name "FollowPath.PathDist.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.PathDist.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.RotateToGoal.class" type String
+                    },
+                    Parameter {
+                        name "FollowPath.RotateToGoal.lookahead_time" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.RotateToGoal.scale" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.RotateToGoal.slowing_factor" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.acc_lim_theta" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.acc_lim_x" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.acc_lim_y" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.angular_granularity" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.critics" type Array {type String}
+                    },
+                    Parameter {
+                        name "FollowPath.debug_trajectory_details" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.decel_lim_theta" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.decel_lim_x" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.decel_lim_y" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.default_critic_namespaces" type Array {type String}
+                    },
+                    Parameter {
+                        name "FollowPath.discretize_by_time" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.forward_prune_distance" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.include_last_point" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.linear_granularity" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.marker_lifetime" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.max_speed_xy" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.max_vel_theta" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.max_vel_x" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.max_vel_y" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.min_speed_theta" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.min_speed_xy" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.min_vel_x" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.min_vel_y" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.plugin" type String
+                    },
+                    Parameter {
+                        name "FollowPath.prune_distance" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.prune_plan" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.publish_cost_grid_pc" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.publish_evaluation" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.publish_global_plan" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.publish_local_plan" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.publish_trajectories" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.publish_transformed_plan" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.short_circuit_trajectory_evaluation" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.shorten_transformed_plan" type Boolean
+                    },
+                    Parameter {
+                        name "FollowPath.sim_time" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.time_granularity" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.trajectory_generator_name" type String
+                    },
+                    Parameter {
+                        name "FollowPath.trans_stopped_velocity" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.transform_tolerance" type Double
+                    },
+                    Parameter {
+                        name "FollowPath.vtheta_samples" type Integer
+                    },
+                    Parameter {
+                        name "FollowPath.vx_samples" type Integer
+                    },
+                    Parameter {
+                        name "FollowPath.vy_samples" type Integer
+                    },
+                    Parameter {
+                        name "FollowPath.xy_goal_tolerance" type Double
+                    },
+                    Parameter {
+                        name "controller_frequency" type Double
+                    },
+                    Parameter {
+                        name "controller_plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "failure_tolerance" type Double
+                    },
+                    Parameter {
+                        name "general_goal_checker.plugin" type String
+                    },
+                    Parameter {
+                        name "general_goal_checker.stateful" type Boolean
+                    },
+                    Parameter {
+                        name "general_goal_checker.xy_goal_tolerance" type Double
+                    },
+                    Parameter {
+                        name "general_goal_checker.yaw_goal_tolerance" type Double
+                    },
+                    Parameter {
+                        name "goal_checker_plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "min_theta_velocity_threshold" type Double
+                    },
+                    Parameter {
+                        name "min_x_velocity_threshold" type Double
+                    },
+                    Parameter {
+                        name "min_y_velocity_threshold" type Double
+                    },
+                    Parameter {
+                        name "odom_topic" type String
+                    },
+                    Parameter {
+                        name "progress_checker.movement_time_allowance" type Double
+                    },
+                    Parameter {
+                        name "progress_checker.plugin" type String
+                    },
+                    Parameter {
+                        name "progress_checker.required_movement_radius" type Double
+                    },
+                    Parameter {
+                        name "progress_checker_plugin" type String
+                    },
+                    Parameter {
+                        name "speed_limit_topic" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+PackageSet{
+    Package bond{ Specs { 
+      TopicSpec Constants{ message { 
+          float32 DEAD_PUBLISH_PERIOD float32 DEFAULT_CONNECT_TIMEOUT float32 DEFAULT_HEARTBEAT_TIMEOUT float32 DEFAULT_DISCONNECT_TIMEOUT float32 DEFAULT_HEARTBEAT_PERIOD string "DISABLE_HEARTBEAT_TIMEOUT_PARAM=.bond_disable_heartbeat_timeout"
+      }},
+      TopicSpec Status{ message { "std_msgs.Header" header string id string instance_id bool active float32 heartbeat_timeout float32 heartbeat_period }}
+    }}
+
+  }

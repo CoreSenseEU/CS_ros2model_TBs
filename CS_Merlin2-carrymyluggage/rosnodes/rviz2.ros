@@ -1,0 +1,101 @@
+PackageSet {
+    AmentPackage rviz2 {
+        Artifact rviz2 {
+            Node {
+                name rviz2
+                Publishers {
+                    
+                    Publisher {
+                        name "clicked_point" message "geometry_msgs.PointStamped"
+                    },
+                    Publisher {
+                        name "initialpose" message "geometry_msgs.PoseWithCovarianceStamped"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "global_costmap/costmap" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "global_costmap/costmap_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "global_costmap/voxel_marked_cloud" message "sensor_msgs.PointCloud"
+                    },
+                    Subscriber {
+                        name "local_costmap/costmap" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "local_costmap/costmap_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "local_costmap/voxel_marked_cloud" message "sensor_msgs.PointCloud"
+                    },
+                    Subscriber {
+                        name "local_plan" message "nav_msgs.Path"
+                    },
+                    Subscriber {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "map_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "marker" message "visualization_msgs.MarkerArray"
+                    },
+                    Subscriber {
+                        name "particlecloud" message "geometry_msgs.PoseArray"
+                    },
+                    Subscriber {
+                        name "plan" message "nav_msgs.Path"
+                    },
+                    Subscriber {
+                        name "robot_description" message "std_msgs.String"
+                    },
+                    Subscriber {
+                        name "scan" message "sensor_msgs.LaserScan"
+                    },
+                    Subscriber {
+                        name "xtion/depth/points" message "sensor_msgs.PointCloud2"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "navigate_through_poses" action "nav2_msgs.NavigateThroughPoses"
+                    },
+                    ActionClient {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "tf_buffer_cache_time_ms" type Integer
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

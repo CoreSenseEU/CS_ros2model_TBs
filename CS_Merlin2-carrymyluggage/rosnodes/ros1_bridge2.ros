@@ -1,0 +1,29 @@
+PackageSet {
+    AmentPackage ros1_bridge2 {
+        Artifact ros1_bridge2 {
+            Node {
+                name ros1_bridge2
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    },
+                    Publisher {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    },
+                    Publisher {
+                        name "tf_static" message "tf2_msgs.TFMessage"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                }
+        }
+    }
+}

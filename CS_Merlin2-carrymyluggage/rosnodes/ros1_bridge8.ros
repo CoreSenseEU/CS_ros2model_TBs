@@ -1,0 +1,26 @@
+PackageSet {
+    AmentPackage ros1_bridge8 {
+        Artifact ros1_bridge8 {
+            Node {
+                name ros1_bridge8
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    },
+                    Publisher {
+                        name "xtion/rgb/camera_info" message "sensor_msgs.CameraInfo"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                }
+        }
+    }
+}

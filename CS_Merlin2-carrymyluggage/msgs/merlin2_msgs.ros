@@ -1,0 +1,12 @@
+PackageSet {
+    Package merlin2_msgs {
+        Specs {
+            ActionSpec DispatchPlan {},
+            ActionSpec DispatchAction {},
+            ServiceSpec GeneratePddl {},
+            ServiceSpec GeneratePlan {},
+            ActionSpec Execute {}
+            
+        }
+    }
+}

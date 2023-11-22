@@ -1,0 +1,26 @@
+PackageSet {
+    AmentPackage ros1_bridge6 {
+        Artifact ros1_bridge6 {
+            Node {
+                name ros1_bridge6
+                Publishers {
+                    
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    },
+                    Publisher {
+                        name "xtion/rgb/image_raw" message "sensor_msgs.Image"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                }
+        }
+    }
+}

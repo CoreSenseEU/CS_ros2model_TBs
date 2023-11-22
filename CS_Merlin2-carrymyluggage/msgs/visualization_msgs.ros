@@ -1,0 +1,18 @@
+PackageSet{
+    Package visualization_msgs{ Specs { 
+      ServiceSpec GetInteractiveMarkers{ request {  } response { uint64 sequence_number InteractiveMarker[] markers } },
+      TopicSpec InteractiveMarkerFeedback{ message { "std_msgs.Header" header string client_id string marker_name string control_name uint8 KEEP_ALIVE=0 uint8 POSE_UPDATE=1 uint8 MENU_SELECT=2 uint8 BUTTON_CLICK=3 uint8 MOUSE_DOWN=4 uint8 MOUSE_UP=5 uint8 event_type "geometry_msgs.Pose" pose uint32 menu_entry_id "geometry_msgs.Point" mouse_point bool mouse_point_valid }},
+      TopicSpec MarkerArray{ message { Marker[] markers }},
+      TopicSpec InteractiveMarkerUpdate{ message { string server_id uint64 seq_num uint8 KEEP_ALIVE=0 uint8 UPDATE=1 uint8 type InteractiveMarker[] markers InteractiveMarkerPose[] poses string[] erases }},
+      TopicSpec ImageMarker{ message { int32 CIRCLE=0 int32 LINE_STRIP=1 int32 LINE_LIST=2 int32 POLYGON=3 int32 POINTS=4 int32 ADD=0 int32 REMOVE=1 "std_msgs.Header" header string ns int32 id int32 type int32 action "geometry_msgs.Point" position float32 scale "std_msgs.ColorRGBA" outline_color uint8 filled "std_msgs.ColorRGBA" fill_color "builtin_interfaces.Duration" lifetime "geometry_msgs.Point"[] points "std_msgs.ColorRGBA"[] outline_colors }},
+      TopicSpec InteractiveMarkerPose{ message { "std_msgs.Header" header "geometry_msgs.Pose" pose string name }},
+      TopicSpec Marker{ message { int32 ARROW=0 int32 CUBE=1 int32 SPHERE=2 int32 CYLINDER=3 int32 LINE_STRIP=4 int32 LINE_LIST=5 int32 CUBE_LIST=6 int32 SPHERE_LIST=7 int32 POINTS=8 int32 TEXT_VIEW_FACING=9 int32 MESH_RESOURCE=10 int32 TRIANGLE_LIST=11 int32 ADD=0 int32 MODIFY=0 int32 DELETE=2 int32 DELETEALL=3 "std_msgs.Header" header string ns int32 id int32 type int32 action "geometry_msgs.Pose" pose "geometry_msgs.Vector3" scale "std_msgs.ColorRGBA" color "builtin_interfaces.Duration" lifetime bool frame_locked "geometry_msgs.Point"[] points "std_msgs.ColorRGBA"[] colors string texture_resource "sensor_msgs.CompressedImage" texture UVCoordinate[] uv_coordinates string text string mesh_resource MeshFile mesh_file bool mesh_use_embedded_materials }},
+      TopicSpec InteractiveMarkerControl{ message { string name "geometry_msgs.Quaternion" orientation uint8 INHERIT=0 uint8 FIXED=1 uint8 VIEW_FACING=2 uint8 orientation_mode uint8 NONE=0 uint8 MENU=1 uint8 BUTTON=2 uint8 MOVE_AXIS=3 uint8 MOVE_PLANE=4 uint8 ROTATE_AXIS=5 uint8 MOVE_ROTATE=6 uint8 MOVE_3D=7 uint8 ROTATE_3D=8 uint8 MOVE_ROTATE_3D=9 uint8 interaction_mode bool always_visible Marker[] markers bool independent_marker_orientation string description }},
+      TopicSpec UVCoordinate{ message { float32 u float32 v }},
+      TopicSpec InteractiveMarkerInit{ message { string server_id uint64 seq_num InteractiveMarker[] markers }},
+      TopicSpec MenuEntry{ message { uint32 id uint32 parent_id string title string command uint8 FEEDBACK=0 uint8 ROSRUN=1 uint8 ROSLAUNCH=2 uint8 command_type }},
+      TopicSpec InteractiveMarker{ message { "std_msgs.Header" header "geometry_msgs.Pose" pose string name string description float32 scale MenuEntry[] menu_entries InteractiveMarkerControl[] controls }},
+      TopicSpec MeshFile{ message { string filename uint8[] data }}
+    }}
+
+  }

@@ -1,0 +1,308 @@
+PackageSet {
+    AmentPackage slam_toolbox {
+        Artifact slam_toolbox {
+            Node {
+                name slam_toolbox
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/clear_changes" service "slam_toolbox.Clear"
+                    },
+                    ServiceServer {
+                        name "~/clear_queue" service "slam_toolbox.ClearQueue"
+                    },
+                    ServiceServer {
+                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
+                    },
+                    ServiceServer {
+                        name "~/deserialize_map" service "slam_toolbox.DeserializePoseGraph"
+                    },
+                    ServiceServer {
+                        name "~/dynamic_map" service "nav_msgs.GetMap"
+                    },
+                    ServiceServer {
+                        name "~/get_interactive_markers" service "visualization_msgs.GetInteractiveMarkers"
+                    },
+                    ServiceServer {
+                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
+                    },
+                    ServiceServer {
+                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
+                    },
+                    ServiceServer {
+                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
+                    },
+                    ServiceServer {
+                        name "~/manual_loop_closure" service "slam_toolbox.LoopClosure"
+                    },
+                    ServiceServer {
+                        name "~/pause_new_measurements" service "slam_toolbox.Pause"
+                    },
+                    ServiceServer {
+                        name "~/save_map" service "slam_toolbox.SaveMap"
+                    },
+                    ServiceServer {
+                        name "~/serialize_map" service "slam_toolbox.SerializePoseGraph"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
+                    },
+                    ServiceServer {
+                        name "~/toggle_interactive_mode" service "slam_toolbox.ToggleInteractive"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Publisher {
+                        name "map_metadata" message "nav_msgs.MapMetaData"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "pose" message "geometry_msgs.PoseWithCovarianceStamped"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    },
+                    Publisher {
+                        name "~/graph_visualization" message "visualization_msgs.MarkerArray"
+                    },
+                    Publisher {
+                        name "~/scan_visualization" message "sensor_msgs.LaserScan"
+                    },
+                    Publisher {
+                        name "~/update" message "visualization_msgs.InteractiveMarkerUpdate"
+                    },
+                    Publisher {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "scan" message "sensor_msgs.LaserScan"
+                    },
+                    Subscriber {
+                        name "~/feedback" message "visualization_msgs.InteractiveMarkerFeedback"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "angle_variance_penalty" type Double
+                    },
+                    Parameter {
+                        name "base_frame" type String
+                    },
+                    Parameter {
+                        name "ceres_dogleg_type" type String
+                    },
+                    Parameter {
+                        name "ceres_linear_solver" type String
+                    },
+                    Parameter {
+                        name "ceres_loss_function" type String
+                    },
+                    Parameter {
+                        name "ceres_preconditioner" type String
+                    },
+                    Parameter {
+                        name "ceres_trust_strategy" type String
+                    },
+                    Parameter {
+                        name "coarse_angle_resolution" type Double
+                    },
+                    Parameter {
+                        name "coarse_search_angle_offset" type Double
+                    },
+                    Parameter {
+                        name "correlation_search_space_dimension" type Double
+                    },
+                    Parameter {
+                        name "correlation_search_space_resolution" type Double
+                    },
+                    Parameter {
+                        name "correlation_search_space_smear_deviation" type Double
+                    },
+                    Parameter {
+                        name "debug_logging" type Boolean
+                    },
+                    Parameter {
+                        name "distance_variance_penalty" type Double
+                    },
+                    Parameter {
+                        name "do_loop_closing" type Boolean
+                    },
+                    Parameter {
+                        name "enable_interactive_mode" type Boolean
+                    },
+                    Parameter {
+                        name "fine_search_angle_offset" type Double
+                    },
+                    Parameter {
+                        name "interactive_mode" type Boolean
+                    },
+                    Parameter {
+                        name "link_match_minimum_response_fine" type Double
+                    },
+                    Parameter {
+                        name "link_scan_maximum_distance" type Double
+                    },
+                    Parameter {
+                        name "loop_match_maximum_variance_coarse" type Double
+                    },
+                    Parameter {
+                        name "loop_match_minimum_chain_size" type Integer
+                    },
+                    Parameter {
+                        name "loop_match_minimum_response_coarse" type Double
+                    },
+                    Parameter {
+                        name "loop_match_minimum_response_fine" type Double
+                    },
+                    Parameter {
+                        name "loop_search_maximum_distance" type Double
+                    },
+                    Parameter {
+                        name "loop_search_space_dimension" type Double
+                    },
+                    Parameter {
+                        name "loop_search_space_resolution" type Double
+                    },
+                    Parameter {
+                        name "loop_search_space_smear_deviation" type Double
+                    },
+                    Parameter {
+                        name "map_file_name" type String
+                    },
+                    Parameter {
+                        name "map_frame" type String
+                    },
+                    Parameter {
+                        name "map_name" type String
+                    },
+                    Parameter {
+                        name "map_start_at_dock" type Boolean
+                    },
+                    Parameter {
+                        name "map_start_pose" type Array {type Double}
+                    },
+                    Parameter {
+                        name "map_update_interval" type Double
+                    },
+                    Parameter {
+                        name "max_laser_range" type Double
+                    },
+                    Parameter {
+                        name "minimum_angle_penalty" type Double
+                    },
+                    Parameter {
+                        name "minimum_distance_penalty" type Double
+                    },
+                    Parameter {
+                        name "minimum_time_interval" type Double
+                    },
+                    Parameter {
+                        name "minimum_travel_distance" type Double
+                    },
+                    Parameter {
+                        name "minimum_travel_heading" type Double
+                    },
+                    Parameter {
+                        name "mode" type String
+                    },
+                    Parameter {
+                        name "odom_frame" type String
+                    },
+                    Parameter {
+                        name "paused_new_measurements" type Boolean
+                    },
+                    Parameter {
+                        name "paused_processing" type Boolean
+                    },
+                    Parameter {
+                        name "position_covariance_scale" type Double
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "resolution" type Double
+                    },
+                    Parameter {
+                        name "scan_buffer_maximum_scan_distance" type Double
+                    },
+                    Parameter {
+                        name "scan_buffer_size" type Integer
+                    },
+                    Parameter {
+                        name "scan_queue_size" type Integer
+                    },
+                    Parameter {
+                        name "scan_topic" type String
+                    },
+                    Parameter {
+                        name "solver_plugin" type String
+                    },
+                    Parameter {
+                        name "tf_buffer_duration" type Double
+                    },
+                    Parameter {
+                        name "throttle_scans" type Integer
+                    },
+                    Parameter {
+                        name "transform_publish_period" type Double
+                    },
+                    Parameter {
+                        name "transform_timeout" type Double
+                    },
+                    Parameter {
+                        name "use_response_expansion" type Boolean
+                    },
+                    Parameter {
+                        name "use_scan_barycenter" type Boolean
+                    },
+                    Parameter {
+                        name "use_scan_matching" type Boolean
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "yaw_covariance_scale" type Double
+                    }}
+                }
+        }
+    }
+}
