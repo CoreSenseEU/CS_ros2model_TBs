@@ -1,0 +1,14 @@
+PackageSet{
+    Package dwb_msgs{ Specs { 
+      TopicSpec TrajectoryScore{ message { Trajectory2D traj CriticScore[] scores float32 total }},
+      TopicSpec LocalPlanEvaluation{ message { "std_msgs.Header" header TrajectoryScore[] twists uint16 best_index uint16 worst_index }},
+      ServiceSpec DebugLocalPlan{ request { "nav_2d_msgs.Pose2DStamped" pose "nav_2d_msgs.Twist2D" velocity "nav_2d_msgs.Path2D" global_plan } response { LocalPlanEvaluation results } },
+      ServiceSpec ScoreTrajectory{ request { "nav_2d_msgs.Pose2DStamped" pose "nav_2d_msgs.Twist2D" velocity "nav_2d_msgs.Path2D" global_plan Trajectory2D traj } response { TrajectoryScore score } },
+      TopicSpec Trajectory2D{ message { "nav_2d_msgs.Twist2D" velocity "builtin_interfaces.Duration"[] time_offsets "geometry_msgs.Pose2D"[] poses }},
+      TopicSpec CriticScore{ message { string name float32 raw_score float32 scale }},
+      ServiceSpec GetCriticScore{ request { "nav_2d_msgs.Pose2DStamped" pose "nav_2d_msgs.Twist2D" velocity "nav_2d_msgs.Path2D" global_plan Trajectory2D traj string critic_name } response { CriticScore score } },
+      ServiceSpec GenerateTwists{ request { "nav_2d_msgs.Twist2D" current_vel } response { "nav_2d_msgs.Twist2D"[] twists } },
+      ServiceSpec GenerateTrajectory{ request { "geometry_msgs.Pose2D" start_pose "nav_2d_msgs.Twist2D" start_vel "nav_2d_msgs.Twist2D" cmd_vel } response { Trajectory2D traj } }
+    }}
+
+  }

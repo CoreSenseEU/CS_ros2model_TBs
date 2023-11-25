@@ -1,0 +1,10 @@
+PackageSet {
+    Package yolov8_msgs {
+        Specs {
+            TopicSpec DialogflowResult {},
+            TopicSpec DetectionArray {},
+            TopicSpec PersonKeypoints2DArray {}
+            
+        }
+    }
+}

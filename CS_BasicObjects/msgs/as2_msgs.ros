@@ -1,0 +1,86 @@
+PackageSet{
+    Package as2_msgs{ Specs { 
+      TopicSpec AlertEvent{ message { int8 KILL_SWITCH=-1 int8 EMERGENCY_HOVER=-2 int8 EMERGENCY_LAND=-3 int8 INFO_ALERT=0 int8 FORCE_HOVER=1 int8 FORCE_LAND=2 int8 alert string description  }},
+      TopicSpec TrajectoryPoint{ message { "std_msgs.Header" header  "geometry_msgs.Vector3" position "geometry_msgs.Vector3" twist "geometry_msgs.Vector3" acceleration float32 yaw_angle }},
+      TopicSpec TrajGenInfo{ message { "std_msgs.Header" header "as2_msgs.NodeStatus" node_status uint8 WAITING=0 uint8 EVALUATING=1 uint8 STOPPED=2 uint8 active_status}},
+      TopicSpec PlatformStateMachineEvent{ message { int8 EMERGENCY=-1 int8 ARM=0 int8 DISARM=1 int8 TAKE_OFF=2 int8 TOOK_OFF=3 int8 LAND=4 int8 LANDED=5 int8 event  }},
+      ServiceSpec DynamicLand{ request { bool enable "geometry_msgs.Twist" speed_limit } response { bool success } },
+      ServiceSpec PackageUnPick{ request { bool enable "geometry_msgs.Twist" speed_limit } response { bool success } },
+      ServiceSpec DynamicFollower{ request { bool enable "geometry_msgs.Twist" speed_limit } response { bool success } },
+      TopicSpec PlatformStatus{ message { int8 EMERGENCY=-1 int8 DISARMED=0 int8 LANDED=1 int8 TAKING_OFF=2 int8 FLYING=3 int8 LANDING=4 int8 state}},
+      TopicSpec Thrust{ message { "std_msgs.Header" header float32 thrust float32 thrust_normalized }},
+      TopicSpec ControllerInfo{ message { "std_msgs.Header" header "as2_msgs.ControlMode" input_control_mode "as2_msgs.ControlMode" output_control_mode }},
+      ServiceSpec SetSpeed{ request { "as2_msgs.Speed" speed } response { bool success } },
+      TopicSpec NodeStatus{ message { int8 UNCONFIGURED=0 int8 INACTIVE=1 int8 ACTIVE=2 int8 FINALIZED=3 int8 status }},
+      ServiceSpec GetGeofence{ request {  } response { bool success "as2_msgs.Geofence"[] geofences } },
+      ServiceSpec SetOrigin{ request { "geographic_msgs.GeoPoint" origin } response { bool success } },
+      TopicSpec MissionUpdate{ message { string drone_id int32 mission_id int32 item_id uint8 EXECUTE=0 uint8 LOAD=1 uint8 START=2 uint8 PAUSE=3 
+          uint8 RESUME=4 uint8 STOP=5 uint8 JUMP_TO=6 uint8 REPEAT=7 uint8 INSERT=8 uint8 MODIFY=9 uint8 REMOVE=10 
+          uint8 RESET=11 uint8 ABORT=12 uint8 action string mission 
+      }},
+      TopicSpec PoseWithID{ message { string id "geometry_msgs.Pose" pose }},
+      ServiceSpec SetPlatformStateMachineEvent{ request { "as2_msgs.PlatformStateMachineEvent" event } response { bool success "as2_msgs.PlatformStatus" current_state 
+      } },
+      TopicSpec FollowTargetInfo{ message { "std_msgs.Header" header int8 WAITING=0 int8 RUNNING=1 int8 END=2 int8 follow_status
+         int8 UNSET=0 int8 PICKUP=1 int8 UNPICK=2 int8 DYNAMIC_LAND=3 int8 DYNAMIC_FOLLOWER=4 int8 follow_mode
+      }},
+      TopicSpec Geofence{ message { int8 id int8 alert string type "geometry_msgs.Polygon" polygon}},
+      ServiceSpec PathToGeopath{ request { "nav_msgs.Path" path } response { bool success "geographic_msgs.GeoPath" geo_path } },
+      TopicSpec BehaviorStatus{ message { uint8 IDLE=0 uint8 RUNNING=1 uint8 PAUSED=2 uint8 status }},
+      ServiceSpec ListControlModes{ request {  } response { string source uint8[] control_modes } },
+      ServiceSpec GetOrigin{ request {  } response { bool success "geographic_msgs.GeoPoint" origin } },
+      ServiceSpec GeopathToPath{ request { "geographic_msgs.GeoPath" geo_path } response { bool success "nav_msgs.Path" path } },
+      TopicSpec ControlMode{ message { "std_msgs.Header" header 
+int8 NONE=0 int8 YAW_ANGLE=1 
+int8 YAW_SPEED=2 
+int8 yaw_mode 
+int8 UNSET=0 
+int8 HOVER=1 
+int8 POSITION=2 
+int8 SPEED=3 
+int8 SPEED_IN_A_PLANE=4 
+int8 ATTITUDE=5 
+int8 ACRO=6 
+int8 TRAJECTORY=7 
+int8 ACEL=8 
+int8 control_mode 
+int8 UNDEFINED_FRAME=0 int8 LOCAL_ENU_FRAME=1 
+int8 BODY_FLU_FRAME=2 
+int8 GLOBAL_LAT_LONG_ASML=3 
+int8 reference_frame 
+}},
+      TopicSpec Speed{ message { "std_msgs.Header" header 
+float32 speed  }},
+      TopicSpec YawMode{ message { uint8 KEEP_YAW=0 
+uint8 PATH_FACING=1 
+uint8 FIXED_YAW=2 
+uint8 YAW_FROM_TOPIC=3 
+uint8 YAW_FROM_ORIENTATION=4 
+uint8 YAW_TO_FRAME=5 
+uint8 mode 
+float32 angle }},
+      TopicSpec MissionEvent{ message { "std_msgs.Header" header 
+string data }},
+      ServiceSpec SetGeofence{ request { "as2_msgs.Geofence" geofence 
+} response { bool success 
+} },
+      ServiceSpec SetControlMode{ request { "as2_msgs.ControlMode" control_mode 
+} response { bool success  } },
+      TopicSpec PoseStampedWithID{ message { string id 
+string "geometry_msgs.PoseStamped" }},
+      ServiceSpec PackagePickUp{ request { bool enable 
+"geometry_msgs.Twist" speed_limit } response { bool success  } },
+      TopicSpec PlatformInfo{ message { "std_msgs.Header" header 
+bool connected 
+bool armed 
+ bool offboard 
+ "as2_msgs.PlatformStatus" status 
+"as2_msgs.ControlMode" current_control_mode }},
+      ActionSpec FollowPath {},
+      ActionSpec GoToWaypoint {},
+      ActionSpec Land {},
+      ActionSpec TakeOff {}
+
+    }}
+
+  }

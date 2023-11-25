@@ -1,0 +1,48 @@
+PackageSet{
+    Package geographic_msgs{ Specs { 
+      TopicSpec GeoPoint{ message { float64 latitude float64 longitude float64 altitude }},
+      TopicSpec GeographicMapChanges{ message {  }},
+      TopicSpec GeoPoseStamped{ message { "std_msgs.Header" header "geographic_msgs.GeoPose" pose }},
+      TopicSpec MapFeature{ message { "unique_identifier_msgs.UUID" id 
+    "unique_identifier_msgs.UUID"[] components 
+    KeyValue[] props }},
+      TopicSpec WayPoint{ message { "unique_identifier_msgs.UUID" id 
+    GeoPoint position 
+    KeyValue[] props }},
+      TopicSpec BoundingBox{ message { GeoPoint min_pt 
+GeoPoint max_pt }},
+      TopicSpec KeyValue{ message { string key 
+string value }},
+      TopicSpec GeoPose{ message { GeoPoint position "geometry_msgs.Quaternion" orientation }},
+      TopicSpec GeoPath{ message { "std_msgs.Header" header "geographic_msgs.GeoPoseStamped"[] poses }},
+      TopicSpec GeographicMap{ message { }},
+      TopicSpec GeoPoseWithCovariance{message {} },
+      ServiceSpec GetGeographicMap{ request { } response { } },
+      TopicSpec RouteNetwork{ message {  }},
+      ServiceSpec GetGeoPath{ request { "geographic_msgs.GeoPoint" start 
+"geographic_msgs.GeoPoint" goal 
+} response { bool success 
+string status 
+"geographic_msgs.GeoPath" plan 
+"unique_identifier_msgs.UUID" network 
+"unique_identifier_msgs.UUID" start_seg 
+"unique_identifier_msgs.UUID" goal_seg 
+float64 distance } },
+      TopicSpec GeoPointStamped{ message { "std_msgs.Header" header "geographic_msgs.GeoPoint" position }},
+      ServiceSpec UpdateGeographicMap{ request { GeographicMapChanges updates } response { bool success 
+string status } },
+      TopicSpec GeoPoseWithCovarianceStamped{ message { "std_msgs.Header" header "geographic_msgs.GeoPoseWithCovariance" pose }},
+      ServiceSpec GetRoutePlan{ request { "unique_identifier_msgs.UUID" network 
+ "unique_identifier_msgs.UUID" start 
+ "unique_identifier_msgs.UUID" goal } response { bool success 
+string status } },
+      TopicSpec RouteSegment{ message { "unique_identifier_msgs.UUID" id 
+"unique_identifier_msgs.UUID" start 
+"unique_identifier_msgs.UUID" end 
+KeyValue[] props }},
+      TopicSpec RoutePath{ message { "std_msgs.Header" header "unique_identifier_msgs.UUID" network 
+"unique_identifier_msgs.UUID"[] segments 
+KeyValue[] props }}
+    }}
+
+  }

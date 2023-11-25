@@ -1,0 +1,6 @@
+PackageSet {
+    Package sound_play { Specs {
+        TopicSpec SoundRequest {},
+        ActionSpec SoundRequestAct {}
+    }}
+}

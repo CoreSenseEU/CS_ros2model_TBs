@@ -1,0 +1,42 @@
+PackageSet{
+    Package plansys2_msgs{ Specs { 
+              TopicSpec "Node"{ message { uint8 UNKNOWN=0 uint8 AND=1 uint8 OR=2 uint8 NOT=3 uint8 ACTION=4 uint8 PREDICATE=5 uint8 FUNCTION=6 uint8 EXPRESSION=7 uint8 FUNCTION_MODIFIER=8 uint8 NUMBER=9 uint8 COMP_EQ=10 uint8 COMP_GE=11 uint8 COMP_GT=12 uint8 COMP_LE=13 uint8 COMP_LT=14 uint8 ARITH_MULT=15 uint8 ARITH_DIV=16 uint8 ARITH_ADD=17 uint8 ARITH_SUB=18 uint8 ASSIGN=19 uint8 INCREASE=20 uint8 DECREASE=21 uint8 SCALE_UP=22 uint8 SCALE_DOWN=23 uint8 node_type uint8 expression_type uint8 modifier_type uint32 node_id uint32[] children string name "plansys2_msgs.Param"[] parameters float64 value bool negate }},
+              TopicSpec Param{ message { string name string type string[] sub_types }},
+        
+              TopicSpec Tree{ message { "plansys2_msgs.Node"[] nodes }},
+              TopicSpec PlanItem{ message { float32 time string action float32 duration }},
+              TopicSpec Action{ message { string name "plansys2_msgs.Param"[] parameters "plansys2_msgs.Tree" preconditions "plansys2_msgs.Tree" effects }},
+        
+      TopicSpec DurativeAction{ message { string name "plansys2_msgs.Param"[] parameters "plansys2_msgs.Tree" at_start_requirements "plansys2_msgs.Tree" over_all_requirements "plansys2_msgs.Tree" at_end_requirements "plansys2_msgs.Tree" at_start_effects "plansys2_msgs.Tree" at_end_effects }},
+      ServiceSpec IsProblemGoalSatisfied{ request { "plansys2_msgs.Tree" tree } response { bool success bool satisfied string error_info } },
+      ServiceSpec GetDomainActionDetails{ request { string action string[] parameters } response { "plansys2_msgs.Action" action bool success string error_info } },
+      TopicSpec Plan{ message { "plansys2_msgs.PlanItem"[] items }},
+      ServiceSpec RemoveProblemGoal{ request { "std_msgs.Empty" "request" } response { bool success string error_info } },
+      ServiceSpec GetProblemGoal{ request { "std_msgs.Empty" "request" } response { bool success "plansys2_msgs.Tree" tree string error_info } },
+      ServiceSpec GetDomainDurativeActionDetails{ request { string durative_action string[] parameters } response { bool success "plansys2_msgs.DurativeAction" durative_action string error_info } },
+      ServiceSpec AffectParam{ request { "plansys2_msgs.Param" param } response { bool success string error_info } },
+      ServiceSpec ClearProblemKnowledge{ request { "std_msgs.Empty" "request" } response { bool success string error_info } },
+      ServiceSpec GetProblem{ request { "std_msgs.Empty" "request" } response { bool success string problem string error_info } },
+      TopicSpec Knowledge{ message { string[] instances string[] predicates string[] functions string goal }},
+      ServiceSpec AffectNode{ request { "plansys2_msgs.Node" "node" } response { bool success string error_info } },
+      ServiceSpec AddProblemGoal{ request { "plansys2_msgs.Tree" tree } response { bool success string error_info } },
+      TopicSpec ActionPerformerStatus{ message { int8 NOT_READY=0 int8 READY=1 int8 RUNNING=2 int8 FAILURE=4 "builtin_interfaces.Time" status_stamp int8 state string action string[] specialized_arguments string node_name }},
+      ServiceSpec GetNodeDetails{ request { string expression } response { bool success "plansys2_msgs.Node" "node" string error_info } },
+      ServiceSpec GetProblemInstances{ request { "std_msgs.Empty" "request" } response { bool success "plansys2_msgs.Param"[] instances string error_info } },
+      ServiceSpec GetDomain{ request { "std_msgs.Empty" "request" } response { bool success string domain string error_info } },
+      TopicSpec ActionExecution{ message { int16 REQUEST=1 int16 RESPONSE=2 int16 CONFIRM=3 int16 REJECT=4 int16 FEEDBACK=5 int16 FINISH=6 int16 CANCEL=7 int16 type string node_id string action string[] arguments bool success float32 completion string status }},
+      ServiceSpec GetDomainName{ request { "std_msgs.Empty" "request" } response { bool success string name string error_info } },
+      ServiceSpec GetOrderedSubGoals{ request { "std_msgs.Empty" "request" } response { bool success "plansys2_msgs.Tree"[] sub_goals string error_info } },
+      ServiceSpec GetDomainActions{ request { "std_msgs.Empty" "request" } response { bool success string[] actions string error_info } },
+      ServiceSpec GetDomainTypes{ request { "std_msgs.Empty" "request" } response { bool success string[] types string error_info } },
+      ServiceSpec GetPlan{ request { string domain string problem } response { bool success "plansys2_msgs.Plan" plan string error_info } },
+      ServiceSpec GetStates{ request { "std_msgs.Empty" "request" } response { bool success "plansys2_msgs.Node"[] states string error_info } },
+      ServiceSpec AddProblem{ request { string problem } response { bool success string error_info } },
+      TopicSpec ActionExecutionInfo{ message { int8 NOT_EXECUTED=1 int8 EXECUTING=2 int8 FAILED=3 int8 SUCCEEDED=4 int8 CANCELLED=5 int8 status "builtin_interfaces.Time" start_stamp "builtin_interfaces.Time" status_stamp string action_full_name string action string[] arguments "builtin_interfaces.Duration" duration float32 completion string message_status }},
+      ServiceSpec ExistNode{ request { "plansys2_msgs.Node" "node" } response { bool exist } },
+      ServiceSpec GetDomainConstants{ request { string type } response { bool success string[] constants string error_info } },
+      ServiceSpec GetProblemInstanceDetails{ request { string instance } response { bool success "plansys2_msgs.Param" instance string error_info } },
+      ActionSpec ExecutePlan {}
+    }}
+
+  }

@@ -1,0 +1,8 @@
+PackageSet {
+     Package as2_external_object_to_tf {
+         Specs {
+             ServiceSpec AddStaticTransform {},
+             ServiceSpec AddStaticTransformGps {}
+         }
+     }
+}

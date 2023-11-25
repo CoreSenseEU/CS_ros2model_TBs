@@ -1,0 +1,9 @@
+PackageSet {
+    Package dialogflow_ros2_interfaces {
+        Specs {
+            TopicSpec PersonKeypoints2DArray {},
+            TopicSpec DialogflowResult {}
+            
+        }
+    }
+}

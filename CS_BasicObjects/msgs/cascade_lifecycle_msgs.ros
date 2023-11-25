@@ -1,0 +1,7 @@
+PackageSet{
+    Package cascade_lifecycle_msgs{ Specs { 
+      TopicSpec State{ message { uint8 state string node_name }},
+      TopicSpec Activation{ message { uint8 ADD=0 uint8 REMOVE=1 uint8 operation_type string activator string activation }}
+    }}
+
+  }

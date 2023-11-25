@@ -1,0 +1,15 @@
+PackageSet{
+    Package slam_toolbox{ Specs { 
+      ServiceSpec DeserializePoseGraph{ request {  } response {  } },
+      ServiceSpec SerializePoseGraph{ request {  } response {  } },
+      ServiceSpec SaveMap{ request {  } response {  } },
+      ServiceSpec Clear{ request {  } response {  } },
+      ServiceSpec AddSubmap{ request {  } response {  } },
+      ServiceSpec MergeMaps{ request {  } response {  } },
+      ServiceSpec Pause{ request {  } response {  } },
+      ServiceSpec LoopClosure{ request {  } response {  } },
+      ServiceSpec ToggleInteractive{ request {  } response {  } },
+      ServiceSpec ClearQueue{ request {  } response {  } }
+    }}
+
+  }

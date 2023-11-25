@@ -1,0 +1,20 @@
+PackageSet{
+    Package control_msgs{ Specs { 
+      TopicSpec AdmittanceControllerState{ message { "std_msgs.Float64MultiArray" mass "std_msgs.Float64MultiArray" damping "std_msgs.Float64MultiArray" stiffness  "geometry_msgs.Quaternion" rot_base_control  "geometry_msgs.TransformStamped" ref_trans_base_ft  "std_msgs.Int8MultiArray" selected_axes  "std_msgs.String" ft_sensor_frame "geometry_msgs.TransformStamped" admittance_position  "geometry_msgs.TwistStamped" admittance_acceleration  "geometry_msgs.TwistStamped" admittance_velocity "geometry_msgs.WrenchStamped" wrench_base  "sensor_msgs.JointState" joint_state  }},
+      TopicSpec PidState{ message { "std_msgs.Header" header "builtin_interfaces.Duration" timestep float64 error float64 error_dot float64 p_error float64 i_error float64 d_error float64 p_term float64 i_term float64 d_term float64 i_max float64 i_min float64 output }},
+      TopicSpec GripperCommand{ message { float64 position float64 max_effort }},
+      TopicSpec JointComponentTolerance{ message { uint16 X_AXIS=1 uint16 Y_AXIS=2 uint16 Z_AXIS=3 uint16 TRANSLATION=4 uint16 ROTATION=5 string joint_name uint16 component float64 position float64 velocity float64 acceleration }},
+      TopicSpec JointTolerance{ message { string name float64 position float64 velocity float64 acceleration }},
+      ServiceSpec QueryTrajectoryState{ request { "builtin_interfaces.Time" time } response { bool success string message string[] name float64[] position float64[] velocity float64[] acceleration } },
+      TopicSpec JointControllerState{ message { "std_msgs.Header" header float64 set_point float64 process_value float64 process_value_dot float64 error float64 time_step float64 command float64 p float64 i float64 d float64 i_clamp bool antiwindup }},
+      TopicSpec MecanumDriveControllerState{ message { "std_msgs.Header" header float64 front_left_wheel_velocity float64 back_left_wheel_velocity float64 back_right_wheel_velocity float64 front_right_wheel_velocity "geometry_msgs.Twist" reference_velocity }},
+      ServiceSpec QueryCalibrationState{ request {  } response { bool is_calibrated } },
+      TopicSpec JointJog{ message { "std_msgs.Header" header string[] joint_names float64[] displacements float64[] velocities float64 duration }},
+      TopicSpec InterfaceValue{ message { string[] interface_names float64[] values }},
+      TopicSpec JointTrajectoryControllerState{ message { "std_msgs.Header" header string[] joint_names "trajectory_msgs.JointTrajectoryPoint" reference "trajectory_msgs.JointTrajectoryPoint" feedback "trajectory_msgs.JointTrajectoryPoint" error "trajectory_msgs.JointTrajectoryPoint" output "trajectory_msgs.JointTrajectoryPoint" desired "trajectory_msgs.JointTrajectoryPoint" actual string[] multi_dof_joint_names "trajectory_msgs.MultiDOFJointTrajectoryPoint" multi_dof_reference "trajectory_msgs.MultiDOFJointTrajectoryPoint" multi_dof_feedback "trajectory_msgs.MultiDOFJointTrajectoryPoint" multi_dof_error "trajectory_msgs.MultiDOFJointTrajectoryPoint" multi_dof_output "trajectory_msgs.MultiDOFJointTrajectoryPoint" multi_dof_desired "trajectory_msgs.MultiDOFJointTrajectoryPoint" multi_dof_actual }},
+      TopicSpec SteeringControllerStatus{ message { "std_msgs.Header" header float64[] traction_wheels_position  float64[] traction_wheels_velocity  float64[] steer_positions float64[] linear_velocity_command float64[] steering_angle_command }},
+      TopicSpec DynamicJointState{ message { "std_msgs.Header" header string[] joint_names InterfaceValue[] interface_values }},
+      ActionSpec GripperCommandAct {}
+    }}
+
+  }
