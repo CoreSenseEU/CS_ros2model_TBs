@@ -1,0 +1,67 @@
+PackageSet {
+    AmentPackage m300_landbehavior {
+        Artifact M300_LandBehavior {
+            Node {
+                name M300_LandBehavior
+
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "M300/motion_reference/pose" message "geometry_msgs.PoseStamped"
+                    },
+                    Publisher {
+                        name "M300/motion_reference/trajectory" message "as2_msgs.TrajectoryPoint"
+                    },
+                    Publisher {
+                        name "M300/motion_reference/twist" message "geometry_msgs.TwistStamped"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "M300/controller/info" message "as2_msgs.ControllerInfo"
+                    },
+                    Subscriber {
+                        name "M300/self_localization/twist" message "geometry_msgs.TwistStamped"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "M300/platform/state_machine_event" service "as2_msgs.SetPlatformStateMachineEvent"
+                    },
+                    ServiceClient {
+                        name "M300/platform_land" service "std_srvs.SetBool"
+                    },
+                    ServiceClient {
+                        name "M300/set_arming_state" service "std_srvs.SetBool"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "~" action "as2_msgs.Land"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "land_speed" type Double
+                    },
+                    Parameter {
+                        name "node_frequency" type Double
+                    },
+                    Parameter {
+                        name "plugin_name" type String
+                    },
+                    Parameter {
+                        name "tf_timeout_threshold" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

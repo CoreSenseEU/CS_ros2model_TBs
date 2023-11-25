@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" uid="_Sw-C4IoYEe689KGneCaB8A" selectedViews="_SxnjIIoYEe689KGneCaB8A" version="15.2.0.202303281325">
+  <semanticResources>rosnodes/CS_Drone-Inspection.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/control_msgs.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/common_msgs.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/ros_core.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/move_base_msgs.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/theora_image_transport.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/dynamic_reconfigure.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/nodelet.ros</semanticResources>
+  <semanticResources>platform:/resource/de.fraunhofer.ipa.ros.communication.objects/basic_msgs/map_msgs.ros</semanticResources>
+  <semanticResources>platform:/plugin/de.fraunhofer.ipa.ros/model/PrimitivesTypes.ecore</semanticResources>
+  <semanticResources>platform:/plugin/de.fraunhofer.ipa.ros/model/ros.ecore</semanticResources>
+  <semanticResources>rosnodes/FollowPathBehavior.ros</semanticResources>
+  <semanticResources>platform:/resource/CS_BasicObjects/msgs/rlc_interfaces.ros</semanticResources>
+  <semanticResources>platform:/resource/CS_BasicObjects/msgs/builtin_interfaces.ros</semanticResources>
+  <semanticResources>rosnodes/GoToWaypointBehavior.ros</semanticResources>
+  <semanticResources>rosnodes/LandBehavior.ros</semanticResources>
+  <semanticResources>rosnodes/TakeOffBehavior.ros</semanticResources>
+  <semanticResources>rosnodes/adapter.ros</semanticResources>
+  <semanticResources>rosnodes/alphanumeric_viewer.ros</semanticResources>
+  <semanticResources>rosnodes/as2_external_object_to_tf.ros</semanticResources>
+  <semanticResources>platform:/resource/CS_BasicObjects/msgs/tf2_msgs.ros</semanticResources>
+  <semanticResources>rosnodes/controller_manager.ros</semanticResources>
+  <semanticResources>rosnodes/dummy_gcs.ros</semanticResources>
+  <semanticResources>rosnodes/platform.ros</semanticResources>
+  <semanticResources>rosnodes/state_estimator.ros</semanticResources>
+  <semanticResources>components/M300_FollowPathBehavior.componentinterface</semanticResources>
+  <semanticResources>components/M300_GoToWaypointBehavior.componentinterface</semanticResources>
+  <semanticResources>components/M300_LandBehavior.componentinterface</semanticResources>
+  <semanticResources>components/M300_TakeOffBehavior.componentinterface</semanticResources>
+  <semanticResources>components/M300_alphanumeric_viewer.componentinterface</semanticResources>
+  <semanticResources>components/M300_as2_external_object_to_tf.componentinterface</semanticResources>
+  <semanticResources>components/M300_controller_manager.componentinterface</semanticResources>
+  <semanticResources>components/M300_platform.componentinterface</semanticResources>
+  <semanticResources>components/M300_state_estimator.componentinterface</semanticResources>
+  <semanticResources>components/dummy_gcs.componentinterface</semanticResources>
+  <semanticResources>components/mission_planner_adapter.componentinterface</semanticResources>
+  <ownedViews xmi:type="viewpoint:DView" uid="_SxnjIIoYEe689KGneCaB8A">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/de.fraunhofer.ipa.ros.sirius/description/ros.odesign#//@ownedViewpoints[name='component']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

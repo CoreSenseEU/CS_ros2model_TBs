@@ -1,0 +1,26 @@
+PackageSet {
+    AmentPackage dummy_gcs {
+        Artifact dummy_gcs {
+            Node {
+                name dummy_gcs
+
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "mission_update" message "as2_msgs.MissionUpdate"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "mission_status" message "std_msgs.String"
+                    }}
+
+                }
+        }
+    }
+}

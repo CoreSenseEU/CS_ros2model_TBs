@@ -1,0 +1,91 @@
+PackageSet {
+    AmentPackage m300_platform {
+        Artifact M300_platform {
+            Node {
+                name M300_platform
+                ServiceServers {
+                    ServiceServer {
+                        name "~/state_machine_event" service "as2_msgs.SetPlatformStateMachineEvent"
+                    },
+                    ServiceServer {
+                        name "~_land" service "std_srvs.SetBool"
+                    },
+                    ServiceServer {
+                        name "~_takeoff" service "std_srvs.SetBool"
+                    },
+                    ServiceServer {
+                        name "M300/set_arming_state" service "std_srvs.SetBool"
+                    },
+                    ServiceServer {
+                        name "M300/set_offboard_mode" service "std_srvs.SetBool"
+                    },
+                    ServiceServer {
+                        name "M300/set_platform_control_mode" service "as2_msgs.SetControlMode"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "~/info" message "as2_msgs.PlatformInfo"
+                    },
+                    Publisher {
+                        name "M300/sensor_measurements/battery" message "sensor_msgs.BatteryState"
+                    },
+                    Publisher {
+                        name "M300/sensor_measurements/gps" message "sensor_msgs.NavSatFix"
+                    },
+                    Publisher {
+                        name "M300/sensor_measurements/odom" message "nav_msgs.Odometry"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "M300/actuator_command/pose" message "geometry_msgs.PoseStamped"
+                    },
+                    Subscriber {
+                        name "M300/actuator_command/thrust" message "as2_msgs.Thrust"
+                    },
+                    Subscriber {
+                        name "M300/actuator_command/twist" message "geometry_msgs.TwistStamped"
+                    },
+                    Subscriber {
+                        name "M300/alert_event" message "as2_msgs.AlertEvent"
+                    },
+                    Subscriber {
+                        name "M300/camera/trigger" message "std_msgs.Bool"
+                    },
+                    Subscriber {
+                        name "M300/gimbal_angle" message "geometry_msgs.Vector3"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "cmd_freq" type Double
+                    },
+                    Parameter {
+                        name "control_modes_file" type String
+                    },
+                    Parameter {
+                        name "enable_advanced_sensing" type Boolean
+                    },
+                    Parameter {
+                        name "enable_mop_channel" type Boolean
+                    },
+                    Parameter {
+                        name "info_freq" type Double
+                    },
+                    Parameter {
+                        name "node_frequency" type Double
+                    },
+                    Parameter {
+                        name "publish_camera" type Boolean
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}
