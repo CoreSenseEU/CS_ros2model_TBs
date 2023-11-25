@@ -1,0 +1,72 @@
+PackageSet {
+    AmentPackage waypoint_follower {
+        Artifact waypoint_follower {
+            Node {
+                name waypoint_follower
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                
+                Publishers {
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    }}
+
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "follow_waypoints" action "nav2_msgs.FollowWaypoints"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "loop_rate" type Integer
+                    },
+                    Parameter {
+                        name "stop_on_failure" type Boolean
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "wait_at_waypoint.enabled" type Boolean
+                    },
+                    Parameter {
+                        name "wait_at_waypoint.plugin" type String
+                    },
+                    Parameter {
+                        name "wait_at_waypoint.waypoint_pause_duration" type Integer
+                    },
+                    Parameter {
+                        name "waypoint_task_executor_plugin" type String
+                    }}
+                }
+        }
+    }
+}

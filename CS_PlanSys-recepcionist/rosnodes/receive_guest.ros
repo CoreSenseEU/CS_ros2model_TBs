@@ -1,0 +1,168 @@
+PackageSet {
+    AmentPackage receive_guest {
+        Artifact receive_guest {
+            Node {
+                name receive_guest
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Publisher {
+                        name "cascade_lifecycle_activations" message "cascade_lifecycle_msgs.Activation"
+                    },
+                    Publisher {
+                        name "cascade_lifecycle_states" message "cascade_lifecycle_msgs.State"
+                    },
+                    Publisher {
+                        name "performers_status" message "plansys2_msgs.ActionPerformerStatus"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "robotsound" message "sound_play.SoundRequest"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Subscriber {
+                        name "cascade_lifecycle_activations" message "cascade_lifecycle_msgs.Activation"
+                    },
+                    Subscriber {
+                        name "cascade_lifecycle_states" message "cascade_lifecycle_msgs.State"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "problem_expert/add_problem" service "plansys2_msgs.AddProblem"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_function" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_goal" service "plansys2_msgs.AddProblemGoal"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_instance" service "plansys2_msgs.AffectParam"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_predicate" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/clear_problem_knowledge" service "plansys2_msgs.ClearProblemKnowledge"
+                    },
+                    ServiceClient {
+                        name "problem_expert/exist_problem_function" service "plansys2_msgs.ExistNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/exist_problem_predicate" service "plansys2_msgs.ExistNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem" service "plansys2_msgs.GetProblem"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_function" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_functions" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_goal" service "plansys2_msgs.GetProblemGoal"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_instance" service "plansys2_msgs.GetProblemInstanceDetails"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_instances" service "plansys2_msgs.GetProblemInstances"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_predicate" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_predicates" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceClient {
+                        name "problem_expert/is_problem_goal_satisfied" service "plansys2_msgs.IsProblemGoalSatisfied"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_function" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_goal" service "plansys2_msgs.RemoveProblemGoal"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_instance" service "plansys2_msgs.AffectParam"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_predicate" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/update_problem_function" service "plansys2_msgs.AffectNode"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "action_name" type String
+                    },
+                    Parameter {
+                        name "bt_file_logging" type Boolean
+                    },
+                    Parameter {
+                        name "bt_minitrace_logging" type Boolean
+                    },
+                    Parameter {
+                        name "bt_xml_file" type String
+                    },
+                    Parameter {
+                        name "enable_groot_monitoring" type Boolean
+                    },
+                    Parameter {
+                        name "max_msgs_per_second" type Integer
+                    },
+                    Parameter {
+                        name "plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "publisher_port" type Integer
+                    },
+                    Parameter {
+                        name "rate" type Double
+                    },
+                    Parameter {
+                        name "server_port" type Integer
+                    },
+                    Parameter {
+                        name "specialized_arguments" type Array {type String}
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

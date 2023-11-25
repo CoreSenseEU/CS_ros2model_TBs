@@ -1,0 +1,42 @@
+PackageSet {
+    AmentPackage executor_client {
+        Artifact executor_client {
+            Node {
+                name executor_client
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "executor/get_ordered_sub_goals" service "plansys2_msgs.GetOrderedSubGoals"
+                    },
+                    ServiceClient {
+                        name "executor/get_plan" service "plansys2_msgs.GetPlan"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "execute_plan" action "plansys2_msgs.ExecutePlan"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

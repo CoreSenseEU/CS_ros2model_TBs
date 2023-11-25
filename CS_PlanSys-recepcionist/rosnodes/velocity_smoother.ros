@@ -1,0 +1,84 @@
+PackageSet {
+    AmentPackage velocity_smoother {
+        Artifact velocity_smoother {
+            Node {
+                name velocity_smoother
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                
+                Publishers {
+
+                    Publisher {
+                        name "nav_vel" message "geometry_msgs.Twist"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    }}
+                
+                Subscribers {
+
+                    Subscriber {
+                        name "cmd_vel" message "geometry_msgs.Twist"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "deadband_velocity" type Array {type Double}
+                    },
+                    Parameter {
+                        name "feedback" type String
+                    },
+                    Parameter {
+                        name "max_accel" type Array {type Double}
+                    },
+                    Parameter {
+                        name "max_decel" type Array {type Double}
+                    },
+                    Parameter {
+                        name "max_velocity" type Array {type Double}
+                    },
+                    Parameter {
+                        name "min_velocity" type Array {type Double}
+                    },
+                    Parameter {
+                        name "odom_duration" type Double
+                    },
+                    Parameter {
+                        name "odom_topic" type String
+                    },
+                    Parameter {
+                        name "scale_velocities" type Boolean
+                    },
+                    Parameter {
+                        name "smoothing_frequency" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "velocity_timeout" type Double
+                    }}
+                }
+        }
+    }
+}

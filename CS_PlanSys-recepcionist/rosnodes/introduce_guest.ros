@@ -1,0 +1,81 @@
+PackageSet {
+    AmentPackage introduce_guest {
+        Artifact introduce_guest {
+            Node {
+                name introduce_guest
+
+                Publishers {
+                    
+                    Publisher {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Publisher {
+                        name "cascade_lifecycle_activations" message "cascade_lifecycle_msgs.Activation"
+                    },
+                    Publisher {
+                        name "cascade_lifecycle_states" message "cascade_lifecycle_msgs.State"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "performers_status" message "plansys2_msgs.ActionPerformerStatus"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Subscriber {
+                        name "cascade_lifecycle_activations" message "cascade_lifecycle_msgs.Activation"
+                    },
+                    Subscriber {
+                        name "cascade_lifecycle_states" message "cascade_lifecycle_msgs.State"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "action_name" type String
+                    },
+                    Parameter {
+                        name "bt_file_logging" type Boolean
+                    },
+                    Parameter {
+                        name "bt_minitrace_logging" type Boolean
+                    },
+                    Parameter {
+                        name "bt_xml_file" type String
+                    },
+                    Parameter {
+                        name "enable_groot_monitoring" type Boolean
+                    },
+                    Parameter {
+                        name "max_msgs_per_second" type Integer
+                    },
+                    Parameter {
+                        name "plugins" type Array {type String}
+                    },
+                    Parameter {
+                        name "publisher_port" type Integer
+                    },
+                    Parameter {
+                        name "rate" type Double
+                    },
+                    Parameter {
+                        name "server_port" type Integer
+                    },
+                    Parameter {
+                        name "specialized_arguments" type Array {type String}
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

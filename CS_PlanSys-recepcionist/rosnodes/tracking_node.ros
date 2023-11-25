@@ -1,0 +1,33 @@
+PackageSet {
+    AmentPackage yolo_tracking_node {
+        Artifact yolo_tracking_node {
+            Node {
+                name yolo_tracking_node
+
+                
+                Publishers {
+                    Publisher {
+                        name "yolo/tracking" message "yolov8_msgs.DetectionArray"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "xtion/rgb/image_raw" message "sensor_msgs.Image"
+                    },
+                    Subscriber {
+                        name "yolo/detections" message "yolov8_msgs.DetectionArray"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "tracker" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

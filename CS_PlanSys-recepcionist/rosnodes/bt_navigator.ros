@@ -1,0 +1,126 @@
+PackageSet {
+    AmentPackage bt_navigator {
+        Artifact bt_navigator {
+            Node {
+                name bt_navigator
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                
+                Publishers {
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    }}
+                
+                Subscribers {
+                    Subscriber {
+                        name "goal_pose" message "geometry_msgs.PoseStamped"
+                    },
+                    Subscriber {
+                        name "odom" message "nav_msgs.Odometry"
+                    },
+                    Subscriber {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    },
+                    Subscriber {
+                        name "tf_static" message "tf2_msgs.TFMessage"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "navigate_through_poses" action "nav2_msgs.NavigateThroughPoses"
+                    },
+                    ActionServer {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "bt_loop_duration" type Integer
+                    },
+                    Parameter {
+                        name "default_nav_through_poses_bt_xml" type String
+                    },
+                    Parameter {
+                        name "default_nav_to_pose_bt_xml" type String
+                    },
+                    Parameter {
+                        name "default_server_timeout" type Integer
+                    },
+                    Parameter {
+                        name "global_frame" type String
+                    },
+                    Parameter {
+                        name "goal_blackboard_id" type String
+                    },
+                    Parameter {
+                        name "goals_blackboard_id" type String
+                    },
+                    Parameter {
+                        name "odom_topic" type String
+                    },
+                    Parameter {
+                        name "path_blackboard_id" type String
+                    },
+                    Parameter {
+                        name "plugin_lib_names" type Array {type String}
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.subscription.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.subscription.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.subscription.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.subscription.reliability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf_static.subscription.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./tf_static.subscription.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf_static.subscription.reliability" type String
+                    },
+                    Parameter {
+                        name "robot_base_frame" type String
+                    },
+                    Parameter {
+                        name "transform_tolerance" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+PackageSet {
+    AmentPackage lifecycle_manager_localization {
+        Artifact lifecycle_manager_localization {
+            Node {
+                name lifecycle_manager_localization
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/is_active" service "std_srvs.Trigger"
+                    },
+                    ServiceServer {
+                        name "~/manage_nodes" service "nav2_msgs.ManageLifecycleNodes"
+                    }}
+                
+                Publishers {
+
+                    Publisher {
+                        name "diagnostics" message "diagnostic_msgs.DiagnosticArray"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "amcl/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "amcl/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceClient {
+                        name "map_server/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "map_server/get_state" service "lifecycle_msgs.GetState"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "attempt_respawn_reconnection" type Boolean
+                    },
+                    Parameter {
+                        name "autostart" type Boolean
+                    },
+                    Parameter {
+                        name "bond_respawn_max_duration" type Double
+                    },
+                    Parameter {
+                        name "bond_timeout" type Double
+                    },
+                    Parameter {
+                        name "diagnostic_updater.period" type Double
+                    },
+                    Parameter {
+                        name "node_names" type Array {type String}
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

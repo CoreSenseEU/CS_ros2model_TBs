@@ -1,0 +1,52 @@
+PackageSet {
+    AmentPackage dialogflow_client {
+        Artifact dialogflow_client {
+            Node {
+                name dialogflow_client
+                ServiceServers {
+                    ServiceServer {
+                        name "~/start" service "std_srvs.Empty"
+                    },
+                    ServiceServer {
+                        name "~/stop" service "std_srvs.Empty"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "~/results" message "dialogflow_ros2_interfaces.DialogflowResult"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "~/requests/string_msg" message "std_msgs.String"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "debug" type Boolean
+                    },
+                    Parameter {
+                        name "default_language" type String
+                    },
+                    Parameter {
+                        name "google_application_credentials" type String
+                    },
+                    Parameter {
+                        name "play_audio" type Boolean
+                    },
+                    Parameter {
+                        name "project_id" type String
+                    },
+                    Parameter {
+                        name "use_audio_server" type Boolean
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

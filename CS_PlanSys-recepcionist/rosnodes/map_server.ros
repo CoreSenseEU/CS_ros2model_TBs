@@ -1,0 +1,64 @@
+PackageSet {
+    AmentPackage map_server {
+        Artifact map_server {
+            Node {
+                name map_server
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/load_map" service "nav2_msgs.LoadMap"
+                    },
+                    ServiceServer {
+                        name "~/map" service "nav_msgs.GetMap"
+                    }}
+                
+                Publishers {
+
+                    Publisher {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "frame_id" type String
+                    },
+                    Parameter {
+                        name "topic_name" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "yaml_filename" type String
+                    }}
+                }
+        }
+    }
+}

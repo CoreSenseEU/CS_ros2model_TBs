@@ -1,0 +1,15 @@
+PackageSet {
+    AmentPackage planner_client {
+        Artifact planner_client {
+            Node {
+                name planner_client
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "planner/get_plan" service "plansys2_msgs.GetPlan"
+                    }}
+                }
+        }
+    }
+}

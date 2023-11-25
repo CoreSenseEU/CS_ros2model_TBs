@@ -1,0 +1,217 @@
+PackageSet {
+    AmentPackage amcl {
+        Artifact amcl {
+            Node {
+                name amcl
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "reinitialize_global_localization" service "std_srvs.Empty"
+                    },
+                    ServiceServer {
+                        name "request_nomotion_update" service "std_srvs.Empty"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "~_pose" message "geometry_msgs.PoseWithCovarianceStamped"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "particle_cloud" message "nav2_msgs.ParticleCloud"
+                    },
+                    Publisher {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    }}
+                
+                Subscribers {
+                    Subscriber {
+                        name "initialpose" message "geometry_msgs.PoseWithCovarianceStamped"
+                    },
+                    Subscriber {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "scan" message "sensor_msgs.LaserScan"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "bond_disable_heartbeat_timeout" type Boolean
+                    },
+                    Parameter {
+                        name "alpha1" type Double
+                    },
+                    Parameter {
+                        name "alpha2" type Double
+                    },
+                    Parameter {
+                        name "alpha3" type Double
+                    },
+                    Parameter {
+                        name "alpha4" type Double
+                    },
+                    Parameter {
+                        name "alpha5" type Double
+                    },
+                    Parameter {
+                        name "always_reset_initial_pose" type Boolean
+                    },
+                    Parameter {
+                        name "base_frame_id" type String
+                    },
+                    Parameter {
+                        name "beam_skip_distance" type Double
+                    },
+                    Parameter {
+                        name "beam_skip_error_threshold" type Double
+                    },
+                    Parameter {
+                        name "beam_skip_threshold" type Double
+                    },
+                    Parameter {
+                        name "do_beamskip" type Boolean
+                    },
+                    Parameter {
+                        name "first_map_only" type Boolean
+                    },
+                    Parameter {
+                        name "global_frame_id" type String
+                    },
+                    Parameter {
+                        name "initial_pose.x" type Double
+                    },
+                    Parameter {
+                        name "initial_pose.y" type Double
+                    },
+                    Parameter {
+                        name "initial_pose.yaw" type Double
+                    },
+                    Parameter {
+                        name "initial_pose.z" type Double
+                    },
+                    Parameter {
+                        name "lambda_short" type Double
+                    },
+                    Parameter {
+                        name "laser_likelihood_max_dist" type Double
+                    },
+                    Parameter {
+                        name "laser_max_range" type Double
+                    },
+                    Parameter {
+                        name "laser_min_range" type Double
+                    },
+                    Parameter {
+                        name "laser_model_type" type String
+                    },
+                    Parameter {
+                        name "map_topic" type String
+                    },
+                    Parameter {
+                        name "max_beams" type Integer
+                    },
+                    Parameter {
+                        name "max_particles" type Integer
+                    },
+                    Parameter {
+                        name "min_particles" type Integer
+                    },
+                    Parameter {
+                        name "odom_frame_id" type String
+                    },
+                    Parameter {
+                        name "pf_err" type Double
+                    },
+                    Parameter {
+                        name "pf_z" type Double
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./tf.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "recovery_alpha_fast" type Double
+                    },
+                    Parameter {
+                        name "recovery_alpha_slow" type Double
+                    },
+                    Parameter {
+                        name "resample_interval" type Integer
+                    },
+                    Parameter {
+                        name "robot_model_type" type String
+                    },
+                    Parameter {
+                        name "save_pose_rate" type Double
+                    },
+                    Parameter {
+                        name "scan_topic" type String
+                    },
+                    Parameter {
+                        name "set_initial_pose" type Boolean
+                    },
+                    Parameter {
+                        name "sigma_hit" type Double
+                    },
+                    Parameter {
+                        name "tf_broadcast" type Boolean
+                    },
+                    Parameter {
+                        name "transform_tolerance" type Double
+                    },
+                    Parameter {
+                        name "update_min_a" type Double
+                    },
+                    Parameter {
+                        name "update_min_d" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    },
+                    Parameter {
+                        name "z_hit" type Double
+                    },
+                    Parameter {
+                        name "z_max" type Double
+                    },
+                    Parameter {
+                        name "z_rand" type Double
+                    },
+                    Parameter {
+                        name "z_short" type Double
+                    }}
+                }
+        }
+    }
+}

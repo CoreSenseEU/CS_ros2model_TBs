@@ -1,0 +1,36 @@
+PackageSet {
+    AmentPackage executor_lc_mngr {
+        Artifact executor_lc_mngr {
+            Node {
+                name executor_lc_mngr
+
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "executor/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "executor/get_state" service "lifecycle_msgs.GetState"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

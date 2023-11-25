@@ -1,0 +1,109 @@
+PackageSet {
+    AmentPackage navigation {
+        Artifact navigation {
+            Node {
+                name navigation
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Publisher {
+                        name "cascade_lifecycle_activations" message "cascade_lifecycle_msgs.Activation"
+                    },
+                    Publisher {
+                        name "cascade_lifecycle_states" message "cascade_lifecycle_msgs.State"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "performers_status" message "plansys2_msgs.ActionPerformerStatus"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Subscriber {
+                        name "cascade_lifecycle_activations" message "cascade_lifecycle_msgs.Activation"
+                    },
+                    Subscriber {
+                        name "cascade_lifecycle_states" message "cascade_lifecycle_msgs.State"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "action_name" type String
+                    },
+                    Parameter {
+                        name "entrance.x" type Double
+                    },
+                    Parameter {
+                        name "entrance.y" type Double
+                    },
+                    Parameter {
+                        name "entrance.yaw" type Double
+                    },
+                    Parameter {
+                        name "living_room.x" type Double
+                    },
+                    Parameter {
+                        name "living_room.y" type Double
+                    },
+                    Parameter {
+                        name "living_room.yaw" type Double
+                    },
+                    Parameter {
+                        name "rate" type Double
+                    },
+                    Parameter {
+                        name "specialized_arguments" type Array {type String}
+                    },
+                    Parameter {
+                        name "starting_point.x" type Double
+                    },
+                    Parameter {
+                        name "starting_point.y" type Double
+                    },
+                    Parameter {
+                        name "starting_point.yaw" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

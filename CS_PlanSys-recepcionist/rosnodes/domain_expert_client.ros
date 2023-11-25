@@ -1,0 +1,48 @@
+PackageSet {
+    AmentPackage domain_expert_client {
+        Artifact domain_expert_client {
+            Node {
+                name domain_expert_client
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "domain_expert/get_domain" service "plansys2_msgs.GetDomain"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_action_details" service "plansys2_msgs.GetDomainActionDetails"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_actions" service "plansys2_msgs.GetDomainActions"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_constants" service "plansys2_msgs.GetDomainConstants"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_durative_action_details" service "plansys2_msgs.GetDomainDurativeActionDetails"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_durative_actions" service "plansys2_msgs.GetDomainActions"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_function_details" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_functions" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_name" service "plansys2_msgs.GetDomainName"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_predicate_details" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_predicates" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceClient {
+                        name "domain_expert/get_domain_types" service "plansys2_msgs.GetDomainTypes"
+                    }}
+                }
+        }
+    }
+}

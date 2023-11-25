@@ -1,0 +1,35 @@
+PackageSet {
+    AmentPackage problem_expert_lc_mngr {
+        Artifact problem_expert_lc_mngr {
+            Node {
+                name problem_expert_lc_mngr
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "problem_expert/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_state" service "lifecycle_msgs.GetState"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

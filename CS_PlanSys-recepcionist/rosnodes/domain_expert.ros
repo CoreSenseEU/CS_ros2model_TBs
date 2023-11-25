@@ -1,0 +1,73 @@
+PackageSet {
+    AmentPackage domain_expert {
+        Artifact domain_expert {
+            Node {
+                name domain_expert
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_domain" service "plansys2_msgs.GetDomain"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_action_details" service "plansys2_msgs.GetDomainActionDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_actions" service "plansys2_msgs.GetDomainActions"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_durative_action_details" service "plansys2_msgs.GetDomainDurativeActionDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_durative_actions" service "plansys2_msgs.GetDomainActions"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_function_details" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_functions" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_name" service "plansys2_msgs.GetDomainName"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_predicate_details" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_predicates" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceServer {
+                        name "~/get_domain_types" service "plansys2_msgs.GetDomainTypes"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
+                    }}
+
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "model_file" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

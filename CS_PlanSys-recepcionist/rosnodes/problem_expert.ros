@@ -1,0 +1,118 @@
+PackageSet {
+    AmentPackage problem_expert {
+        Artifact problem_expert {
+            Node {
+                name problem_expert
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/add_problem" service "plansys2_msgs.AddProblem"
+                    },
+                    ServiceServer {
+                        name "~/add_problem_function" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceServer {
+                        name "~/add_problem_goal" service "plansys2_msgs.AddProblemGoal"
+                    },
+                    ServiceServer {
+                        name "~/add_problem_instance" service "plansys2_msgs.AffectParam"
+                    },
+                    ServiceServer {
+                        name "~/add_problem_predicate" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceServer {
+                        name "~/clear_problem_knowledge" service "plansys2_msgs.ClearProblemKnowledge"
+                    },
+
+                    ServiceServer {
+                        name "~/exist_problem_function" service "plansys2_msgs.ExistNode"
+                    },
+                    ServiceServer {
+                        name "~/exist_problem_predicate" service "plansys2_msgs.ExistNode"
+                    },
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+
+                    ServiceServer {
+                        name "~/get_problem" service "plansys2_msgs.GetProblem"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_function" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_functions" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_goal" service "plansys2_msgs.GetProblemGoal"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_instance" service "plansys2_msgs.GetProblemInstanceDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_instances" service "plansys2_msgs.GetProblemInstances"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_predicate" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceServer {
+                        name "~/get_problem_predicates" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/is_problem_goal_satisfied" service "plansys2_msgs.IsProblemGoalSatisfied"
+                    },
+                    ServiceServer {
+                        name "~/remove_problem_function" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceServer {
+                        name "~/remove_problem_goal" service "plansys2_msgs.RemoveProblemGoal"
+                    },
+                    ServiceServer {
+                        name "~/remove_problem_instance" service "plansys2_msgs.AffectParam"
+                    },
+                    ServiceServer {
+                        name "~/remove_problem_predicate" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceServer {
+                        name "~/update_problem_function" service "plansys2_msgs.AffectNode"
+                    }}
+                
+                Publishers {
+                    Publisher {
+                        name "~/knowledge" message "plansys2_msgs.Knowledge"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Publisher {
+                        name "~/update_notify" message "std_msgs.Empty"
+                    }}
+
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "model_file" type String
+                    },
+                    Parameter {
+                        name "problem_file" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

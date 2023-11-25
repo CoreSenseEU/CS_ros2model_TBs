@@ -1,0 +1,36 @@
+PackageSet {
+    AmentPackage yolo_debug_node {
+        Artifact yolo_debug_node {
+            Node {
+                name yolo_debug_node
+
+                
+                Publishers {
+                    Publisher {
+                        name "yolo/dbg_image" message "sensor_msgs.Image"
+                    },
+                    Publisher {
+                        name "yolo/dgb_bb_markers" message "visualization_msgs.MarkerArray"
+                    },
+                    Publisher {
+                        name "yolo/dgb_kp_markers" message "visualization_msgs.MarkerArray"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "xtion/rgb/image_raw" message "sensor_msgs.Image"
+                    },
+                    Subscriber {
+                        name "yolo/tracking" message "yolov8_msgs.DetectionArray"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

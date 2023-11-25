@@ -1,0 +1,78 @@
+PackageSet {
+    AmentPackage problem_expert_client {
+        Artifact problem_expert_client {
+            Node {
+                name problem_expert_client
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "problem_expert/add_problem" service "plansys2_msgs.AddProblem"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_function" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_goal" service "plansys2_msgs.AddProblemGoal"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_instance" service "plansys2_msgs.AffectParam"
+                    },
+                    ServiceClient {
+                        name "problem_expert/add_problem_predicate" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/clear_problem_knowledge" service "plansys2_msgs.ClearProblemKnowledge"
+                    },
+                    ServiceClient {
+                        name "problem_expert/exist_problem_function" service "plansys2_msgs.ExistNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/exist_problem_predicate" service "plansys2_msgs.ExistNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem" service "plansys2_msgs.GetProblem"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_function" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_functions" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_goal" service "plansys2_msgs.GetProblemGoal"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_instance" service "plansys2_msgs.GetProblemInstanceDetails"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_instances" service "plansys2_msgs.GetProblemInstances"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_predicate" service "plansys2_msgs.GetNodeDetails"
+                    },
+                    ServiceClient {
+                        name "problem_expert/get_problem_predicates" service "plansys2_msgs.GetStates"
+                    },
+                    ServiceClient {
+                        name "problem_expert/is_problem_goal_satisfied" service "plansys2_msgs.IsProblemGoalSatisfied"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_function" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_goal" service "plansys2_msgs.RemoveProblemGoal"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_instance" service "plansys2_msgs.AffectParam"
+                    },
+                    ServiceClient {
+                        name "problem_expert/remove_problem_predicate" service "plansys2_msgs.AffectNode"
+                    },
+                    ServiceClient {
+                        name "problem_expert/update_problem_function" service "plansys2_msgs.AffectNode"
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+PackageSet {
+    AmentPackage depth_registered_1_to_2 {
+        Artifact depth_registered_1_to_2 {
+            Node {
+                name depth_registered_1_to_2
+                Publishers {
+                    Publisher {
+                        name "xtion/depth_registered/image_raw" message "sensor_msgs.Image"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

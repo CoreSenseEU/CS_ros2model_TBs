@@ -1,0 +1,88 @@
+PackageSet {
+    AmentPackage rviz {
+        Artifact rviz {
+            Node {
+                name rviz
+
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "clicked_point" message "geometry_msgs.PointStamped"
+                    },
+                    Publisher {
+                        name "initialpose" message "geometry_msgs.PoseWithCovarianceStamped"
+                    },
+                    Publisher {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    },
+                    Publisher {
+                        name "rosout" message "rcl_interfaces.Log"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "downsampled_costmap" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "downsampled_costmap_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "global_costmap/costmap" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "global_costmap/costmap_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "global_costmap/voxel_marked_cloud" message "sensor_msgs.PointCloud2"
+                    },
+                    Subscriber {
+                        name "local_costmap/costmap" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "local_costmap/costmap_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "local_costmap/published_footprint" message "geometry_msgs.PolygonStamped"
+                    },
+                    Subscriber {
+                        name "local_costmap/voxel_marked_cloud" message "sensor_msgs.PointCloud2"
+                    },
+                    Subscriber {
+                        name "local_plan" message "nav_msgs.Path"
+                    },
+                    Subscriber {
+                        name "map" message "nav_msgs.OccupancyGrid"
+                    },
+                    Subscriber {
+                        name "map_updates" message "map_msgs.OccupancyGridUpdate"
+                    },
+                    Subscriber {
+                        name "mobile_base/sensors/bumper_pointcloud" message "sensor_msgs.PointCloud2"
+                    },
+                    Subscriber {
+                        name "particle_cloud" message "nav2_msgs.ParticleCloud"
+                    },
+                    Subscriber {
+                        name "plan" message "nav_msgs.Path"
+                    },
+                    Subscriber {
+                        name "scan" message "sensor_msgs.LaserScan"
+                    },
+                    Subscriber {
+                        name "waypoints" message "visualization_msgs.MarkerArray"
+                    }}
+                
+                ActionClients {
+                    
+                    ActionClient {
+                        name "navigate_through_poses" action "nav2_msgs.NavigateThroughPoses"
+                    },
+                    ActionClient {
+                        name "navigate_to_pose" action "nav2_msgs.NavigateToPose"
+                    }}
+                }
+        }
+    }
+}

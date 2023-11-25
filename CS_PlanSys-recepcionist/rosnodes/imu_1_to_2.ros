@@ -1,0 +1,21 @@
+PackageSet {
+    AmentPackage imu_1_to_2 {
+        Artifact imu_1_to_2 {
+            Node {
+                name imu_1_to_2
+
+                Publishers {
+                    
+                    Publisher {
+                        name "base_imu" message "sensor_msgs.Imu"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

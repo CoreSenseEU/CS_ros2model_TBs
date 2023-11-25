@@ -1,0 +1,21 @@
+PackageSet {
+    AmentPackage image_1_to_2 {
+        Artifact image_1_to_2 {
+            Node {
+                name image_1_to_2
+                
+                Publishers {
+                    Publisher {
+                        name "xtion/rgb/image_raw" message "sensor_msgs.Image"
+                    }}
+
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

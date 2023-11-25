@@ -1,0 +1,93 @@
+PackageSet {
+    AmentPackage executor {
+        Artifact executor {
+            Node {
+                name executor
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+
+                    ServiceServer {
+                        name "~/get_available_states" service "lifecycle_msgs.GetAvailableStates"
+                    },
+                    ServiceServer {
+                        name "~/get_available_transitions" service "lifecycle_msgs.GetAvailableTransitions"
+                    },
+                    ServiceServer {
+                        name "~/get_ordered_sub_goals" service "plansys2_msgs.GetOrderedSubGoals"
+                    },
+                    ServiceServer {
+                        name "~/get_plan" service "plansys2_msgs.GetPlan"
+                    },
+                    ServiceServer {
+                        name "~/get_state" service "lifecycle_msgs.GetState"
+                    },
+                    ServiceServer {
+                        name "~/get_transition_graph" service "lifecycle_msgs.GetAvailableTransitions"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "action_execution_info" message "plansys2_msgs.ActionExecutionInfo"
+                    },
+                    Publisher {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    },
+                    Publisher {
+                        name "dot_graph" message "std_msgs.String"
+                    },
+                    Publisher {
+                        name "executing_plan" message "plansys2_msgs.Plan"
+                    },
+                    Publisher {
+                        name "~/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "actions_hub" message "plansys2_msgs.ActionExecution"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "execute_plan" action "plansys2_msgs.ExecutePlan"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "action_timeouts.actions" type Array {type String}
+                    },
+                    Parameter {
+                        name "default_action_bt_xml_filename" type String
+                    },
+                    Parameter {
+                        name "enable_dotgraph_legend" type Boolean
+                    },
+                    Parameter {
+                        name "enable_groot_monitoring" type Boolean
+                    },
+                    Parameter {
+                        name "max_msgs_per_second" type Integer
+                    },
+                    Parameter {
+                        name "print_graph" type Boolean
+                    },
+                    Parameter {
+                        name "publisher_port" type Integer
+                    },
+                    Parameter {
+                        name "server_port" type Integer
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+PackageSet {
+    AmentPackage receive_guest_bb_node {
+        Artifact receive_guest_bb_node {
+            Node {
+                name receive_guest_bb_node
+
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "dialog_gui/is_listening" message "std_msgs.Bool"
+                    },
+                    Publisher {
+                        name "dialog_gui/talk" message "std_msgs.String"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "dialogflow_client/results" message "dialogflow_ros2_interfaces.DialogflowResult"
+                    },
+                    Subscriber {
+                        name "yolo/detections" message "vision_msgs.Detection2DArray"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.depth" type Integer
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.durability" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.history" type String
+                    },
+                    Parameter {
+                        name "qos_overrides./parameter_events.publisher.reliability" type String
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

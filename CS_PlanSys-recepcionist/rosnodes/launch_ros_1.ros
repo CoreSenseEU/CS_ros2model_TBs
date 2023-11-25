@@ -1,0 +1,96 @@
+PackageSet {
+    AmentPackage launch_ros_1 {
+        Artifact launch_ros_1 {
+            Node {
+                name launch_ros_1
+
+                
+
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "camera_info_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "depth_registered_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "image_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "imu_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "ir_image_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "moveit_2_to_1/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "odom_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "pc2_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "scan_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "tf_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "tf_static_1_to_2/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    },
+                    Subscriber {
+                        name "twist_2_to_1/transition_event" message "lifecycle_msgs.TransitionEvent"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "camera_info_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "depth_registered_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "image_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "imu_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "ir_image_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "moveit_2_to_1/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "odom_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "pc2_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "scan_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "tf_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "tf_static_1_to_2/change_state" service "lifecycle_msgs.ChangeState"
+                    },
+                    ServiceClient {
+                        name "twist_2_to_1/change_state" service "lifecycle_msgs.ChangeState"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

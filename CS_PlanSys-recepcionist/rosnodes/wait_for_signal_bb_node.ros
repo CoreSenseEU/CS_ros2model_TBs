@@ -1,0 +1,18 @@
+PackageSet {
+    AmentPackage wait_for_signal_bb_node {
+        Artifact wait_for_signal_bb_node {
+            Node {
+                name wait_for_signal_bb_node
+
+                
+
+                
+                Subscribers {
+
+                    Subscriber {
+                        name "robocup_start_signal" message "std_msgs.String"
+                    }}
+                }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+PackageSet {
+    AmentPackage yolo_yolov8_node {
+        Artifact yolo_yolov8_node {
+            Node {
+                name yolo_yolov8_node
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "yolo/enable" service "std_srvs.SetBool"
+                    }}
+                
+                Publishers {
+                    Publisher {
+                        name "yolo/detections" message "yolov8_msgs.DetectionArray"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "xtion/rgb/image_raw" message "sensor_msgs.Image"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "device" type String
+                    },
+                    Parameter {
+                        name "enable" type Boolean
+                    },
+                    Parameter {
+                        name "model" type String
+                    },
+                    Parameter {
+                        name "threshold" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}
