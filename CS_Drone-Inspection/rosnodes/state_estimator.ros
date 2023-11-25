@@ -1,0 +1,71 @@
+PackageSet {
+    AmentPackage m300_state_estimator {
+        Artifact M300_state_estimator {
+            Node {
+                name M300_state_estimator
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "M300/get_origin" service "as2_msgs.GetOrigin"
+                    },
+                    ServiceServer {
+                        name "M300/set_origin" service "as2_msgs.SetOrigin"
+                    }}
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "M300/self_localization/pose" message "geometry_msgs.PoseStamped"
+                    },
+                    Publisher {
+                        name "M300/self_localization/twist" message "geometry_msgs.TwistStamped"
+                    },
+                    Publisher {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    },
+                    Publisher {
+                        name "tf_static" message "tf2_msgs.TFMessage"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "M300/sensor_measurements/odom" message "nav_msgs.Odometry"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "base_frame" type String
+                    },
+                    Parameter {
+                        name "global_ref_frame" type String
+                    },
+                    Parameter {
+                        name "map_frame" type String
+                    },
+                    Parameter {
+                        name "node_frequency" type Double
+                    },
+                    Parameter {
+                        name "odom_frame" type String
+                    },
+                    Parameter {
+                        name "odometry_topic" type String
+                    },
+                    Parameter {
+                        name "plugin_name" type String
+                    },
+                    Parameter {
+                        name "set_origin_on_start" type Boolean
+                    },
+                    Parameter {
+                        name "use_gps" type Boolean
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

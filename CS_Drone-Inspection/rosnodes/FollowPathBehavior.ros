@@ -1,0 +1,61 @@
+PackageSet {
+    AmentPackage m300_follow_path_behavior {
+        Artifact M300_FollowPathBehavior {
+            Node {
+                name M300_FollowPathBehavior
+
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "M300/motion_reference/pose" message "geometry_msgs.PoseStamped"
+                    },
+                    Publisher {
+                        name "M300/motion_reference/trajectory" message "as2_msgs.TrajectoryPoint"
+                    },
+                    Publisher {
+                        name "M300/motion_reference/twist" message "geometry_msgs.TwistStamped"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "M300/controller/info" message "as2_msgs.ControllerInfo"
+                    },
+                    Subscriber {
+                        name "M300/platform/info" message "as2_msgs.PlatformInfo"
+                    },
+                    Subscriber {
+                        name "M300/self_localization/twist" message "geometry_msgs.TwistStamped"
+                    }}
+                
+                ActionServers {
+                    
+                    ActionServer {
+                        name "~" action "as2_msgs.FollowPath"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "follow_path_speed" type Double
+                    },
+                    Parameter {
+                        name "follow_path_threshold" type Double
+                    },
+                    Parameter {
+                        name "node_frequency" type Double
+                    },
+                    Parameter {
+                        name "plugin_name" type String
+                    },
+                    Parameter {
+                        name "tf_timeout_threshold" type Double
+                    },
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

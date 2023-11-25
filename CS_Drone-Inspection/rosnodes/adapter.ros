@@ -1,0 +1,34 @@
+PackageSet {
+    AmentPackage mission_planner_adapter {
+        Artifact mission_planner_adapter {
+            Node {
+                name mission_planner_adapter
+
+                
+                Publishers {
+                    
+                    Publisher {
+                        name "mission_update" message "as2_msgs.MissionUpdate"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "mission_status" message "std_msgs.String"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "external_object_to_tf" service "std_srvs.SetBool"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "use_sim_time" type Boolean
+                    }}
+                }
+        }
+    }
+}

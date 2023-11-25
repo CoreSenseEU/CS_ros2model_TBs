@@ -1,0 +1,46 @@
+PackageSet {
+    AmentPackage m300_as2_external_object_to_tf {
+        Artifact M300_as2_external_object_to_tf {
+            Node {
+                name M300_as2_external_object_to_tf
+                ServiceServers {
+                    
+                    ServiceServer {
+                        name "~/add_static_transform" service "as2_external_object_to_tf.AddStaticTransform"
+                    },
+                    ServiceServer {
+                        name "~/add_static_transform_gps" service "as2_external_object_to_tf.AddStaticTransformGps"
+                    }}
+                
+                Publishers {
+                    Publisher {
+                        name "tf" message "tf2_msgs.TFMessage"
+                    },
+                    Publisher {
+                        name "tf_static" message "tf2_msgs.TFMessage"
+                    }}
+                
+                Subscribers {
+                    
+                    Subscriber {
+                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
+                    }}
+                
+                ServiceClients {
+                    
+                    ServiceClient {
+                        name "M300/get_origin" service "as2_msgs.GetOrigin"
+                    }}
+                
+                Parameters {
+                    
+                    Parameter {
+                        name "config_file" type String
+                    },
+                    Parameter {
+                        name "node_frequency" type Double
+                    }}
+                }
+        }
+    }
+}
