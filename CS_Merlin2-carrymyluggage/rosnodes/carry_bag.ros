@@ -7,13 +7,6 @@ PackageSet {
                     Publisher {
                         name "robotsound" message "sound_play.SoundRequest"
                     }}
-                
-                Subscribers {
-                    
-                    Subscriber {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    }}
-                }
         }
     }
-}
+}}

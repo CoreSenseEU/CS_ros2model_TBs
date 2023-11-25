@@ -7,24 +7,6 @@ PackageSet {
                     
                     ServiceServer {
                         name "follow/enable" service "std_srvs.SetBool"
-                    },
-                    ServiceServer {
-                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
-                    },
-                    ServiceServer {
-                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
-                    },
-                    ServiceServer {
-                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
-                    },
-                    ServiceServer {
-                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
                     }}
                 
                 Publishers {
@@ -34,12 +16,6 @@ PackageSet {
                     },
                     Publisher {
                         name "goal_pose" message "geometry_msgs.PoseStamped"
-                    },
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
                     }}
                 
                 Subscribers {

@@ -10,16 +10,8 @@ Publishers {
                     },
                     Publisher {
                         name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
                     }}
-                
-                Subscribers {
-                    
-                    Subscriber {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    }}
+
                 
                 ServiceClients {
                     

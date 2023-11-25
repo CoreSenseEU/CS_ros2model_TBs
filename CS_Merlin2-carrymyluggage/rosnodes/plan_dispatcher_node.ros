@@ -3,14 +3,7 @@ PackageSet {
         Artifact merlin2_plan_dispatcher_node {
             Node {
                 name merlin2_plan_dispatcher_node
-                Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    }}
+
                 
                 ActionServers {
                     

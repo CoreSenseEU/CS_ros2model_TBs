@@ -4,25 +4,6 @@ PackageSet {
             Node {
                 name dialogflow_client
                 ServiceServers {
-                    
-                    ServiceServer {
-                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
-                    },
-                    ServiceServer {
-                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
-                    },
-                    ServiceServer {
-                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
-                    },
-                    ServiceServer {
-                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
-                    },
                     ServiceServer {
                         name "~/start" service "std_srvs.Empty"
                     },
@@ -34,12 +15,6 @@ PackageSet {
                     
                     Publisher {
                         name "~/results" message "dialogflow_ros2_interfaces.DialogflowResult"
-                    },
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
                     }}
                 
                 Subscribers {

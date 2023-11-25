@@ -3,38 +3,7 @@ PackageSet {
         Artifact merlin2_planner_node {
             Node {
                 name merlin2_planner_node
-                ServiceServers {
-                    
-                    ServiceServer {
-                        name "merlin2/generate_plan" service "merlin2_msgs.GeneratePlan"
-                    },
-                    ServiceServer {
-                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
-                    },
-                    ServiceServer {
-                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
-                    },
-                    ServiceServer {
-                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
-                    },
-                    ServiceServer {
-                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
-                    }}
                 
-                Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    }}
                 
                 Parameters {
                     

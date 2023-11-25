@@ -4,21 +4,9 @@ PackageSet {
             Node {
                 name put_bag
                 Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
+
                     Publisher {
                         name "robotsound" message "sound_play.SoundRequest"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    }}
-                
-                Subscribers {
-                    
-                    Subscriber {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
                     }}
                 }
         }

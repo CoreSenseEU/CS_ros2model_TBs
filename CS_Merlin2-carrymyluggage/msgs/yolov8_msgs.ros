@@ -1,8 +1,0 @@
-PackageSet {
-    Package dialogflow_ros2_interfaces {
-        Specs {
-            TopicSpec DialogflowResult {}
-            
-        }
-    }
-}

@@ -3,6 +3,7 @@
 	<name>CS_Merlin2-carrymyluggage</name>
 	<comment></comment>
 	<projects>
+		<project>CS_BasicObjects</project>
 		<project>de.fraunhofer.ipa.ros.communication.objects</project>
 	</projects>
 	<buildSpec>

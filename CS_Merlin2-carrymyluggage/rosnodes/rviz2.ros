@@ -10,12 +10,6 @@ PackageSet {
                     },
                     Publisher {
                         name "initialpose" message "geometry_msgs.PoseWithCovarianceStamped"
-                    },
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
                     }}
                 
                 Subscribers {

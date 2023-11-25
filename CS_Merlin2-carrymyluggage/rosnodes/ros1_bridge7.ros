@@ -4,22 +4,11 @@ PackageSet {
             Node {
                 name ros1_bridge7
                 Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    },
+
                     Publisher {
                         name "xtion/depth_registered/points" message "sensor_msgs.PointCloud2"
                     }}
-                
-                Subscribers {
-                    
-                    Subscriber {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    }}
+
                 }
         }
     }

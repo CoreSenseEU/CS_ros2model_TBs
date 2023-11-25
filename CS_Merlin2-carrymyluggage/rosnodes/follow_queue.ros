@@ -3,14 +3,7 @@ PackageSet {
         Artifact merlin2_follow_queue {
             Node {
                 name merlin2_follow_queue
-                Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    }}
+
                 
                 Subscribers {
                     

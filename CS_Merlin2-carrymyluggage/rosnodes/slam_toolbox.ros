@@ -12,9 +12,6 @@ PackageSet {
                         name "~/clear_queue" service "slam_toolbox.ClearQueue"
                     },
                     ServiceServer {
-                        name "~/describe_parameters" service "rcl_interfaces.DescribeParameters"
-                    },
-                    ServiceServer {
                         name "~/deserialize_map" service "slam_toolbox.DeserializePoseGraph"
                     },
                     ServiceServer {
@@ -22,15 +19,6 @@ PackageSet {
                     },
                     ServiceServer {
                         name "~/get_interactive_markers" service "visualization_msgs.GetInteractiveMarkers"
-                    },
-                    ServiceServer {
-                        name "~/get_parameter_types" service "rcl_interfaces.GetParameterTypes"
-                    },
-                    ServiceServer {
-                        name "~/get_parameters" service "rcl_interfaces.GetParameters"
-                    },
-                    ServiceServer {
-                        name "~/list_parameters" service "rcl_interfaces.ListParameters"
                     },
                     ServiceServer {
                         name "~/manual_loop_closure" service "slam_toolbox.LoopClosure"
@@ -45,12 +33,6 @@ PackageSet {
                         name "~/serialize_map" service "slam_toolbox.SerializePoseGraph"
                     },
                     ServiceServer {
-                        name "~/set_parameters" service "rcl_interfaces.SetParameters"
-                    },
-                    ServiceServer {
-                        name "~/set_parameters_atomically" service "rcl_interfaces.SetParametersAtomically"
-                    },
-                    ServiceServer {
                         name "~/toggle_interactive_mode" service "slam_toolbox.ToggleInteractive"
                     }}
                 
@@ -63,13 +45,7 @@ PackageSet {
                         name "map_metadata" message "nav_msgs.MapMetaData"
                     },
                     Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
                         name "pose" message "geometry_msgs.PoseWithCovarianceStamped"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
                     },
                     Publisher {
                         name "~/graph_visualization" message "visualization_msgs.MarkerArray"

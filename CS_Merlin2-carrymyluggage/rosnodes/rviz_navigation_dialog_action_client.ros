@@ -4,22 +4,11 @@ PackageSet {
             Node {
                 name rviz_navigation_dialog_action_client
                 Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    },
+
                     Publisher {
                         name "waypoints" message "visualization_msgs.MarkerArray"
                     }}
-                
-                Subscribers {
-                    
-                    Subscriber {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    }}
+
                 
                 ServiceClients {
                     

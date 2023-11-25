@@ -4,22 +4,11 @@ PackageSet {
             Node {
                 name ros1_bridge4
                 Publishers {
-                    
-                    Publisher {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    },
-                    Publisher {
-                        name "rosout" message "rcl_interfaces.Log"
-                    },
+
                     Publisher {
                         name "scan" message "sensor_msgs.LaserScan"
                     }}
-                
-                Subscribers {
-                    
-                    Subscriber {
-                        name "parameter_events" message "rcl_interfaces.ParameterEvent"
-                    }}
+
                 }
         }
     }

@@ -1,8 +1,0 @@
-PackageSet {
-    Package yolov8_msgs {
-        Specs {
-            TopicSpec PersonKeypoints2DArray {}
-            
-        }
-    }
-}
