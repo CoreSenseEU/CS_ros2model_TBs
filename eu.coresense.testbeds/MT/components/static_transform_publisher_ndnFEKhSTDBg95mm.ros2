@@ -1,0 +1,44 @@
+static_transform_publisher:
+  artifacts:
+    static_transform_publisher:
+      node: static_transform_publisher
+      publishers:
+        'tf_static':
+          type: 'tf2_msgs/msg/TFMessage'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+      parameters:
+        'child_frame_id':
+          type: String
+          value: "kmriiwa_odom"
+        'frame_id':
+          type: String
+          value: "map"
+        'rotation.w':
+          type: Double
+          value: 1.0
+        'rotation.x':
+          type: Double
+          value: 0.0
+        'rotation.y':
+          type: Double
+          value: 0.0
+        'rotation.z':
+          type: Double
+          value: 0.0
+        'translation.x':
+          type: Double
+          value: 0.0
+        'translation.y':
+          type: Double
+          value: 0.0
+        'translation.z':
+          type: Double
+          value: 0.0
+        'use_sim_time':
+          type: Boolean
+          value: false

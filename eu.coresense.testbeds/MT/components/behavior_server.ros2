@@ -1,0 +1,56 @@
+nav2_behaviors:
+  artifacts:
+    behavior_server:
+      node: behavior_server
+      publishers:
+        'behavior_server/transition_event':
+          type: 'lifecycle_msgs/msg/TransitionEvent'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'bond':
+          type: 'bond/msg/Status'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'cmd_vel':
+          type: 'geometry_msgs/msg/Twist'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'bond':
+          type: 'bond/msg/Status'
+        'local_costmap/costmap_raw':
+          type: 'nav2_msgs/msg/Costmap'
+        'local_costmap/published_footprint':
+          type: 'geometry_msgs/msg/PolygonStamped'
+      actionservers:
+        'backup':
+          type: 'nav2_msgs/action/BackUp'
+        'drive_on_heading':
+          type: 'nav2_msgs/action/DriveOnHeading'
+        'spin':
+          type: 'nav2_msgs/action/Spin'
+        'wait':
+          type: 'nav2_msgs/action/Wait'
+      serviceservers:
+        'behavior_server/change_state':
+          type: 'lifecycle_msgs/srv/ChangeState'
+        'behavior_server/get_available_states':
+          type: 'lifecycle_msgs/srv/GetAvailableStates'
+        'behavior_server/get_available_transitions':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'behavior_server/get_state':
+          type: 'lifecycle_msgs/srv/GetState'
+        'behavior_server/get_transition_graph':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'

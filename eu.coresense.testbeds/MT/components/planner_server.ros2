@@ -1,0 +1,149 @@
+nav2_planner:
+  artifacts:
+    planner_server:
+      node: planner_server
+      publishers:
+        'bond':
+          type: 'bond/msg/Status'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'plan':
+          type: 'nav_msgs/msg/Path'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'planner_server/transition_event':
+          type: 'lifecycle_msgs/msg/TransitionEvent'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'unsmoothed_plan':
+          type: 'nav_msgs/msg/Path'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'bond':
+          type: 'bond/msg/Status'
+      actionservers:
+        'compute_path_through_poses':
+          type: 'nav2_msgs/action/ComputePathThroughPoses'
+        'compute_path_to_pose':
+          type: 'nav2_msgs/action/ComputePathToPose'
+      serviceservers:
+        'is_path_valid':
+          type: 'nav2_msgs/srv/IsPathValid'
+        'planner_server/change_state':
+          type: 'lifecycle_msgs/srv/ChangeState'
+        'planner_server/get_available_states':
+          type: 'lifecycle_msgs/srv/GetAvailableStates'
+        'planner_server/get_available_transitions':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'planner_server/get_state':
+          type: 'lifecycle_msgs/srv/GetState'
+        'planner_server/get_transition_graph':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+      parameters:
+        '/bond_disable_heartbeat_timeout':
+          type: Boolean
+          value: true
+        'GridBased.allow_unknown':
+          type: Boolean
+          value: true
+        'GridBased.analytic_expansion_max_length':
+          type: Double
+          value: 3.0
+        'GridBased.analytic_expansion_ratio':
+          type: Double
+          value: 3.5
+        'GridBased.angle_quantization_bins':
+          type: Integer
+          value: 72
+        'GridBased.cache_obstacle_heuristic':
+          type: Boolean
+          value: true
+        'GridBased.change_penalty':
+          type: Double
+          value: 0.0
+        'GridBased.cost_penalty':
+          type: Double
+          value: 2.0
+        'GridBased.downsample_costmap':
+          type: Boolean
+          value: false
+        'GridBased.downsampling_factor':
+          type: Integer
+          value: 1
+        'GridBased.lookup_table_size':
+          type: Double
+          value: 20.0
+        'GridBased.max_iterations':
+          type: Integer
+          value: 1000000
+        'GridBased.max_on_approach_iterations':
+          type: Integer
+          value: 1000
+        'GridBased.max_planning_time':
+          type: Double
+          value: 5.0
+        'GridBased.minimum_turning_radius':
+          type: Double
+          value: 0.4
+        'GridBased.motion_model_for_search':
+          type: String
+          value: "REEDS_SHEPP"
+        'GridBased.non_straight_penalty':
+          type: Double
+          value: 1.2
+        'GridBased.plugin':
+          type: String
+          value: "nav2_smac_planner/SmacPlannerHybrid"
+        'GridBased.retrospective_penalty':
+          type: Double
+          value: 0.015
+        'GridBased.reverse_penalty':
+          type: Double
+          value: 2.1
+        'GridBased.smooth_path':
+          type: Boolean
+          value: true
+        'GridBased.smoother.do_refinement':
+          type: Boolean
+          value: true
+        'GridBased.smoother.max_iterations':
+          type: Integer
+          value: 1000
+        'GridBased.smoother.tolerance':
+          type: Double
+          value: 1e-10
+        'GridBased.smoother.w_data':
+          type: Double
+          value: 0.2
+        'GridBased.smoother.w_smooth':
+          type: Double
+          value: 0.3
+        'GridBased.tolerance':
+          type: Double
+          value: 0.25
+        'expected_planner_frequency':
+          type: Double
+          value: 20.0
+        'planner_plugins':
+          type: Array[String]
+          value: ['GridBased']
+        'use_sim_time':
+          type: Boolean
+          value: false

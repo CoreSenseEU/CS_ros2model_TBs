@@ -1,0 +1,250 @@
+global_costmap:
+  artifacts:
+     global_costmap:
+      node: global_costmap
+      publishers:
+        'costmap':
+          type: 'nav_msgs/msg/OccupancyGrid'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'costmap_raw':
+          type: 'nav2_msgs/msg/Costmap'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'costmap_updates':
+          type: 'map_msgs/msg/OccupancyGridUpdate'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'global_costmap/transition_event':
+          type: 'lifecycle_msgs/msg/TransitionEvent'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'published_footprint':
+          type: 'geometry_msgs/msg/PolygonStamped'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+      subscribers:
+        'footprint':
+          type: 'geometry_msgs/msg/Polygon'
+        '':
+          type: 'nav_msgs/msg/OccupancyGrid'
+      serviceservers:
+        'clear_around_global_costmap':
+          type: 'nav2_msgs/srv/ClearCostmapAroundRobot'
+        'clear_entirely_global_costmap':
+          type: 'nav2_msgs/srv/ClearEntireCostmap'
+        'clear_except_global_costmap':
+          type: 'nav2_msgs/srv/ClearCostmapExceptRegion'
+        'get_costmap':
+          type: 'nav2_msgs/srv/GetCostmap'
+        'global_costmap/change_state':
+          type: 'lifecycle_msgs/srv/ChangeState'
+        'global_costmap/get_available_states':
+          type: 'lifecycle_msgs/srv/GetAvailableStates'
+        'global_costmap/get_available_transitions':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'global_costmap/get_state':
+          type: 'lifecycle_msgs/srv/GetState'
+        'global_costmap/get_transition_graph':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+      parameters:
+        '/bond_disable_heartbeat_timeout':
+          type: Boolean
+          value: true
+        'always_send_full_costmap':
+          type: Boolean
+          value: true
+        'filters':
+          type: Array[String]
+          value: ['']
+        'footprint':
+          type: String
+          value: "[[0.60,0.375],[0.60,-0.375],[-0.60,-0.375],[-0.60,0.375]]"
+        'footprint_padding':
+          type: Double
+          value: 0.0
+        'global_frame':
+          type: String
+          value: "map"
+        'height':
+          type: Integer
+          value: 5
+        'inflation_layer.cost_scaling_factor':
+          type: Double
+          value: 2.5
+        'inflation_layer.enabled':
+          type: Boolean
+          value: true
+        'inflation_layer.inflate_around_unknown':
+          type: Boolean
+          value: false
+        'inflation_layer.inflate_unknown':
+          type: Boolean
+          value: false
+        'inflation_layer.inflation_radius':
+          type: Double
+          value: 1.2
+        'inflation_layer.plugin':
+          type: String
+          value: "nav2_costmap_2d::InflationLayer"
+        'lethal_cost_threshold':
+          type: Integer
+          value: 100
+        'map_topic':
+          type: String
+          value: "/map"
+        'observation_sources':
+          type: String
+          value: ""
+        'obstacle_layer.combination_method':
+          type: Integer
+          value: 1
+        'obstacle_layer.enabled':
+          type: Boolean
+          value: true
+        'obstacle_layer.footprint_clearing_enabled':
+          type: Boolean
+          value: true
+        'obstacle_layer.max_obstacle_height':
+          type: Double
+          value: 2.0
+        'obstacle_layer.min_obstacle_height':
+          type: Double
+          value: 0.0
+        'obstacle_layer.observation_sources':
+          type: String
+          value: "scan_merged"
+        'obstacle_layer.plugin':
+          type: String
+          value: "nav2_costmap_2d::ObstacleLayer"
+        'obstacle_layer.scan_merged.clearing':
+          type: Boolean
+          value: true
+        'obstacle_layer.scan_merged.data_type':
+          type: String
+          value: "LaserScan"
+        'obstacle_layer.scan_merged.expected_update_rate':
+          type: Double
+          value: 0.0
+        'obstacle_layer.scan_merged.inf_is_valid':
+          type: Boolean
+          value: false
+        'obstacle_layer.scan_merged.marking':
+          type: Boolean
+          value: true
+        'obstacle_layer.scan_merged.max_obstacle_height':
+          type: Double
+          value: 2.0
+        'obstacle_layer.scan_merged.min_obstacle_height':
+          type: Double
+          value: 0.0
+        'obstacle_layer.scan_merged.observation_persistence':
+          type: Double
+          value: 0.0
+        'obstacle_layer.scan_merged.obstacle_max_range':
+          type: Double
+          value: 5.0
+        'obstacle_layer.scan_merged.obstacle_min_range':
+          type: Double
+          value: 0.0
+        'obstacle_layer.scan_merged.raytrace_max_range':
+          type: Double
+          value: 7.0
+        'obstacle_layer.scan_merged.raytrace_min_range':
+          type: Double
+          value: 0.0
+        'obstacle_layer.scan_merged.sensor_frame':
+          type: String
+          value: ""
+        'obstacle_layer.scan_merged.topic':
+          type: String
+          value: "/scan_multi"
+        'origin_x':
+          type: Double
+          value: 0.0
+        'origin_y':
+          type: Double
+          value: 0.0
+        'plugins':
+          type: Array[String]
+          value: ['static_layer', 'obstacle_layer', 'inflation_layer']
+        'publish_frequency':
+          type: Double
+          value: 1.0
+        'resolution':
+          type: Double
+          value: 0.05
+        'robot_base_frame':
+          type: String
+          value: "kmriiwa_base_footprint"
+        'robot_radius':
+          type: Double
+          value: 0.1
+        'rolling_window':
+          type: Boolean
+          value: false
+        'static_layer.enabled':
+          type: Boolean
+          value: true
+        'static_layer.footprint_clearing_enabled':
+          type: Boolean
+          value: false
+        'static_layer.map_subscribe_transient_local':
+          type: Boolean
+          value: true
+        'static_layer.map_topic':
+          type: String
+          value: ""
+        'static_layer.plugin':
+          type: String
+          value: "nav2_costmap_2d::StaticLayer"
+        'static_layer.subscribe_to_updates':
+          type: Boolean
+          value: false
+        'static_layer.transform_tolerance':
+          type: Double
+          value: 0.0
+        'track_unknown_space':
+          type: Boolean
+          value: true
+        'transform_tolerance':
+          type: Double
+          value: 1.0
+        'trinary_costmap':
+          type: Boolean
+          value: true
+        'unknown_cost_value':
+          type: Integer
+          value: 255
+        'update_frequency':
+          type: Double
+          value: 1.0
+        'use_maximum':
+          type: Boolean
+          value: false
+        'use_sim_time':
+          type: Boolean
+          value: false
+        'width':
+          type: Integer
+          value: 5

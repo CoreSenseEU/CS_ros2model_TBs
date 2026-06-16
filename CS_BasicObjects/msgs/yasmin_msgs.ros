@@ -1,8 +1,0 @@
-PackageSet {
-    Package yasmin_msgs {
-        Specs {
-            TopicSpec StateMachine {},
-            ActionSpec DispatchAction {}
-        }
-    }
-}

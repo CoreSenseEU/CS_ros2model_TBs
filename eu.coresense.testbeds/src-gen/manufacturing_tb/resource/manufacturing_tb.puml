@@ -1,0 +1,421 @@
+@startuml
+
+/'SUBSYSTEMS'/
+
+  component robot_state_publisher {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout robot_state_publisher.robot_description as "robot_description" #blue
+    portout robot_state_publisher.tf as "tf" #blue
+    portout robot_state_publisher.tf_static as "tf_static" #blue
+    portin robot_state_publisher.clock as "clock" #blue
+    portin robot_state_publisher.kmriiwa_arm_joint_states as "kmriiwa/arm/joint_states" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component joint_state_publisher_gui {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout joint_state_publisher_gui.kmriiwa_arm_joint_states as "kmriiwa/arm/joint_states" #blue
+    portin joint_state_publisher_gui.clock as "clock" #blue
+    portin joint_state_publisher_gui.robot_description as "robot_description" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component bt_navigator {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout bt_navigator.bt_navigator_transition_event as "bt_navigator/transition_event" #blue
+    portin bt_navigator.bt_navigator_change_state as "bt_navigator/change_state" #orange
+    portin bt_navigator.bt_navigator_get_available_states as "bt_navigator/get_available_states" #orange
+    portin bt_navigator.bt_navigator_get_available_transitions as "bt_navigator/get_available_transitions" #orange
+    portin bt_navigator.bt_navigator_get_state as "bt_navigator/get_state" #orange
+    portin bt_navigator.bt_navigator_get_transition_graph as "bt_navigator/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component relay {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout relay.cmd_vel as "cmd_vel" #blue
+    portin relay.kmriiwa_base_command_cmd_vel as "kmriiwa/base/command/cmd_vel" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component gazebo {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout gazebo.clock as "clock" #blue
+    portout gazebo.performance_metrics as "performance_metrics" #blue
+    portin gazebo.sub_clock as "sub_clock" #blue
+    portin gazebo.pause_physics as "pause_physics" #orange
+    portin gazebo.reset_simulation as "reset_simulation" #orange
+    portin gazebo.reset_world as "reset_world" #orange
+    portin gazebo.unpause_physics as "unpause_physics" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component gazebo_sensor_B1_controller {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout gazebo_sensor_B1_controller.kmriiwa_base_state_LaserB1Scan as "kmriiwa/base/state/LaserB1Scan" #blue
+    portin gazebo_sensor_B1_controller.clock as "clock" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component gazebo_sensor_B4_controller {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout gazebo_sensor_B4_controller.kmriiwa_base_state_LaserB4Scan as "kmriiwa/base/state/LaserB4Scan" #blue
+    portin gazebo_sensor_B4_controller.clock as "clock" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component planar_move {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout planar_move.odom as "odom" #blue
+    portout planar_move.tf as "tf" #blue
+    portin planar_move.clock as "clock" #blue
+    portin planar_move.cmd_vel as "cmd_vel" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component gazebo_ros_joint_state_publisher {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout gazebo_ros_joint_state_publisher.joint_states as "joint_states" #blue
+    portin gazebo_ros_joint_state_publisher.clock as "clock" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component laserscan_multi_merger {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout laserscan_multi_merger.merged_cloud as "merged_cloud" #blue
+    portout laserscan_multi_merger.scan_multi as "scan_multi" #blue
+    portin laserscan_multi_merger.kmriiwa_base_state_LaserB1Scan as "kmriiwa/base/state/LaserB1Scan" #blue
+    portin laserscan_multi_merger.kmriiwa_base_state_LaserB4Scan as "kmriiwa/base/state/LaserB4Scan" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component transform_listener_impl_63dab121a590 {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portin transform_listener_impl_63dab121a590.tf as "tf" #blue
+    portin transform_listener_impl_63dab121a590.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component transform_listener_impl_586cb636ca10 {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portin transform_listener_impl_586cb636ca10.tf as "tf" #blue
+    portin transform_listener_impl_586cb636ca10.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component map_server {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout map_server.bond as "bond" #blue
+    portout map_server.map as "map" #blue
+    portout map_server.map_server_transition_event as "map_server/transition_event" #blue
+    portin map_server.sub_bond as "sub_bond" #blue
+    portin map_server.map_server_change_state as "map_server/change_state" #orange
+    portin map_server.map_server_get_available_states as "map_server/get_available_states" #orange
+    portin map_server.map_server_get_available_transitions as "map_server/get_available_transitions" #orange
+    portin map_server.map_server_get_state as "map_server/get_state" #orange
+    portin map_server.map_server_get_transition_graph as "map_server/get_transition_graph" #orange
+    portin map_server.map_server_load_map as "map_server/load_map" #orange
+    portin map_server.map_server_map as "map_server/map" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component amcl {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout amcl.amcl_transition_event as "amcl/transition_event" #blue
+    portout amcl.amcl_pose as "amcl_pose" #blue
+    portout amcl.bond as "bond" #blue
+    portout amcl.particle_cloud as "particle_cloud" #blue
+    portout amcl.tf as "tf" #blue
+    portin amcl.sub_bond as "sub_bond" #blue
+    portin amcl.initialpose as "initialpose" #blue
+    portin amcl.map as "map" #blue
+    portin amcl.scan_multi as "scan_multi" #blue
+    portin amcl.amcl_change_state as "amcl/change_state" #orange
+    portin amcl.amcl_get_available_states as "amcl/get_available_states" #orange
+    portin amcl.amcl_get_available_transitions as "amcl/get_available_transitions" #orange
+    portin amcl.amcl_get_state as "amcl/get_state" #orange
+    portin amcl.amcl_get_transition_graph as "amcl/get_transition_graph" #orange
+    portin amcl.reinitialize_global_localization as "reinitialize_global_localization" #orange
+    portin amcl.request_nomotion_update as "request_nomotion_update" #orange
+    portin amcl.set_initial_pose as "set_initial_pose" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component controller_server {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout controller_server.bond as "bond" #blue
+    portout controller_server.controller_server_transition_event as "controller_server/transition_event" #blue
+    portout controller_server.kmriiwa_base_command_cmd_vel as "kmriiwa/base/command/cmd_vel" #blue
+    portout controller_server.trajectories as "trajectories" #blue
+    portout controller_server.transformed_global_plan as "transformed_global_plan" #blue
+    portin controller_server.sub_bond as "sub_bond" #blue
+    portin controller_server.odom as "odom" #blue
+    portin controller_server.speed_limit as "speed_limit" #blue
+    portin controller_server.follow_path as "follow_path" #green
+    portin controller_server.controller_server_change_state as "controller_server/change_state" #orange
+    portin controller_server.controller_server_get_available_states as "controller_server/get_available_states" #orange
+    portin controller_server.controller_server_get_available_transitions as "controller_server/get_available_transitions" #orange
+    portin controller_server.controller_server_get_state as "controller_server/get_state" #orange
+    portin controller_server.controller_server_get_transition_graph as "controller_server/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component planner_server {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout planner_server.bond as "bond" #blue
+    portout planner_server.plan as "plan" #blue
+    portout planner_server.planner_server_transition_event as "planner_server/transition_event" #blue
+    portout planner_server.unsmoothed_plan as "unsmoothed_plan" #blue
+    portin planner_server.sub_bond as "sub_bond" #blue
+    portin planner_server.compute_path_through_poses as "compute_path_through_poses" #green
+    portin planner_server.compute_path_to_pose as "compute_path_to_pose" #green
+    portin planner_server.is_path_valid as "is_path_valid" #orange
+    portin planner_server.planner_server_change_state as "planner_server/change_state" #orange
+    portin planner_server.planner_server_get_available_states as "planner_server/get_available_states" #orange
+    portin planner_server.planner_server_get_available_transitions as "planner_server/get_available_transitions" #orange
+    portin planner_server.planner_server_get_state as "planner_server/get_state" #orange
+    portin planner_server.planner_server_get_transition_graph as "planner_server/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component transform_listener_impl_62307b87cbb0 {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portin transform_listener_impl_62307b87cbb0.tf as "tf" #blue
+    portin transform_listener_impl_62307b87cbb0.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component behavior_server {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout behavior_server.behavior_server_transition_event as "behavior_server/transition_event" #blue
+    portout behavior_server.bond as "bond" #blue
+    portout behavior_server.cmd_vel as "cmd_vel" #blue
+    portin behavior_server.sub_bond as "sub_bond" #blue
+    portin behavior_server.local_costmap_costmap_raw as "local_costmap/costmap_raw" #blue
+    portin behavior_server.local_costmap_published_footprint as "local_costmap/published_footprint" #blue
+    portin behavior_server.backup as "backup" #green
+    portin behavior_server.drive_on_heading as "drive_on_heading" #green
+    portin behavior_server.spin as "spin" #green
+    portin behavior_server.wait as "wait" #green
+    portin behavior_server.behavior_server_change_state as "behavior_server/change_state" #orange
+    portin behavior_server.behavior_server_get_available_states as "behavior_server/get_available_states" #orange
+    portin behavior_server.behavior_server_get_available_transitions as "behavior_server/get_available_transitions" #orange
+    portin behavior_server.behavior_server_get_state as "behavior_server/get_state" #orange
+    portin behavior_server.behavior_server_get_transition_graph as "behavior_server/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component transform_listener_impl_591884f5efa0 {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portin transform_listener_impl_591884f5efa0.tf as "tf" #blue
+    portin transform_listener_impl_591884f5efa0.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component bt_navigator {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout bt_navigator.bt_navigator_transition_event as "bt_navigator/transition_event" #blue
+    portin bt_navigator.bt_navigator_change_state as "bt_navigator/change_state" #orange
+    portin bt_navigator.bt_navigator_get_available_states as "bt_navigator/get_available_states" #orange
+    portin bt_navigator.bt_navigator_get_available_transitions as "bt_navigator/get_available_transitions" #orange
+    portin bt_navigator.bt_navigator_get_state as "bt_navigator/get_state" #orange
+    portin bt_navigator.bt_navigator_get_transition_graph as "bt_navigator/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component bt_navigator_navigate_to_pose {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout bt_navigator_navigate_to_pose.behavior_tree_log as "behavior_tree_log" #blue
+    portout bt_navigator_navigate_to_pose.backup as "backup" #green
+    portout bt_navigator_navigate_to_pose.compute_path_to_pose as "compute_path_to_pose" #green
+    portout bt_navigator_navigate_to_pose.follow_path as "follow_path" #green
+    portout bt_navigator_navigate_to_pose.spin as "spin" #green
+    portout bt_navigator_navigate_to_pose.wait as "wait" #green
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component bt_navigator_navigate_through_poses {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout bt_navigator_navigate_through_poses.behavior_tree_log as "behavior_tree_log" #blue
+    portout bt_navigator_navigate_through_poses.backup as "backup" #green
+    portout bt_navigator_navigate_through_poses.compute_path_through_poses as "compute_path_through_poses" #green
+    portout bt_navigator_navigate_through_poses.follow_path as "follow_path" #green
+    portout bt_navigator_navigate_through_poses.spin as "spin" #green
+    portout bt_navigator_navigate_through_poses.wait as "wait" #green
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component robot_state_publisher {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout robot_state_publisher.robot_description as "robot_description" #blue
+    portin robot_state_publisher.joint_states as "joint_states" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component robot_description_publisher {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout robot_description_publisher.robot_description as "robot_description" #blue
+    portout robot_description_publisher.clock as "clock" #blue
+    portin robot_description_publisher.joint_states as "joint_states" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component rviz {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout rviz.clicked_point as "clicked_point" #blue
+    portout rviz.initialpose as "initialpose" #blue
+    portout rviz.move_base_simple_goal as "move_base_simple/goal" #blue
+    portin rviz.global_costmap_costmap as "global_costmap/costmap" #blue
+    portin rviz.global_costmap_costmap_updates as "global_costmap/costmap_updates" #blue
+    portin rviz.kmriiwa_base_state_LaserB1Scan as "kmriiwa/base/state/LaserB1Scan" #blue
+    portin rviz.kmriiwa_base_state_LaserB4Scan as "kmriiwa/base/state/LaserB4Scan" #blue
+    portin rviz.kmriiwa_base_state_odom as "kmriiwa/base/state/odom" #blue
+    portin rviz.kmriiwa_robot_description as "kmriiwa/robot_description" #blue
+    portin rviz.plan as "plan" #blue
+    portin rviz.received_global_plan as "received_global_plan" #blue
+    portin rviz.scan_multi as "scan_multi" #blue
+    portin rviz.transformed_global_plan as "transformed_global_plan" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component transform_listener_impl_5f3f2f2aa6c0 {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portin transform_listener_impl_5f3f2f2aa6c0.tf as "tf" #blue
+    portin transform_listener_impl_5f3f2f2aa6c0.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component static_transform_publisher_vS7Rn4YQfVmDReBi {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout static_transform_publisher_vS7Rn4YQfVmDReBi.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component static_transform_publisher_BB3LgctvQJmC8ZBZ {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout static_transform_publisher_BB3LgctvQJmC8ZBZ.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component static_transform_publisher_rk0xEkSw7GX3BxqV {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout static_transform_publisher_rk0xEkSw7GX3BxqV.tf_static as "tf_static" #blue
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component global_costmap/global_costmap {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout global_costmap_global_costmap.costmap as "costmap" #blue
+    portout global_costmap_global_costmap.costmap_raw as "costmap_raw" #blue
+    portout global_costmap_global_costmap.costmap_updates as "costmap_updates" #blue
+    portout global_costmap_global_costmap.global_costmap_transition_event as "global_costmap/transition_event" #blue
+    portout global_costmap_global_costmap.published_footprint as "published_footprint" #blue
+    portin global_costmap_global_costmap.footprint as "footprint" #blue
+    portin global_costmap_global_costmap.clear_around_global_costmap as "clear_around_global_costmap" #orange
+    portin global_costmap_global_costmap.clear_entirely_global_costmap as "clear_entirely_global_costmap" #orange
+    portin global_costmap_global_costmap.clear_except_global_costmap as "clear_except_global_costmap" #orange
+    portin global_costmap_global_costmap.get_costmap as "get_costmap" #orange
+    portin global_costmap_global_costmap.global_costmap_change_state as "global_costmap/change_state" #orange
+    portin global_costmap_global_costmap.global_costmap_get_available_states as "global_costmap/get_available_states" #orange
+    portin global_costmap_global_costmap.global_costmap_get_available_transitions as "global_costmap/get_available_transitions" #orange
+    portin global_costmap_global_costmap.global_costmap_get_state as "global_costmap/get_state" #orange
+    portin global_costmap_global_costmap.global_costmap_get_transition_graph as "global_costmap/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component local_costmap/local_costmap {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout local_costmap_local_costmap.costmap as "costmap" #blue
+    portout local_costmap_local_costmap.costmap_raw as "costmap_raw" #blue
+    portout local_costmap_local_costmap.costmap_updates as "costmap_updates" #blue
+    portout local_costmap_local_costmap.local_costmap_transition_event as "local_costmap/transition_event" #blue
+    portout local_costmap_local_costmap.published_footprint as "published_footprint" #blue
+    portin local_costmap_local_costmap.footprint as "footprint" #blue
+    portin local_costmap_local_costmap.clear_around_local_costmap as "clear_around_local_costmap" #orange
+    portin local_costmap_local_costmap.clear_entirely_local_costmap as "clear_entirely_local_costmap" #orange
+    portin local_costmap_local_costmap.clear_except_local_costmap as "clear_except_local_costmap" #orange
+    portin local_costmap_local_costmap.get_costmap as "get_costmap" #orange
+    portin local_costmap_local_costmap.local_costmap_change_state as "local_costmap/change_state" #orange
+    portin local_costmap_local_costmap.local_costmap_get_available_states as "local_costmap/get_available_states" #orange
+    portin local_costmap_local_costmap.local_costmap_get_available_transitions as "local_costmap/get_available_transitions" #orange
+    portin local_costmap_local_costmap.local_costmap_get_state as "local_costmap/get_state" #orange
+    portin local_costmap_local_costmap.local_costmap_get_transition_graph as "local_costmap/get_transition_graph" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+  component lifecycle_manager_navigation {
+
+/' PORTS DEFINED AS AVAILABLE IN THE ROSSYSTEM FILE '/
+    portout lifecycle_manager_navigation.bond as "bond" #blue
+    portout lifecycle_manager_navigation.diagnostics as "diagnostics" #blue
+    portin lifecycle_manager_navigation.sub_bond as "sub_bond" #blue
+    portin lifecycle_manager_navigation.lifecycle_manager_navigation_is_active as "lifecycle_manager_navigation/is_active" #orange
+    portin lifecycle_manager_navigation.lifecycle_manager_navigation_manage_nodes as "lifecycle_manager_navigation/manage_nodes" #orange
+
+/' PORTS FROM THE ORIGINAL NODE '/
+  }
+
+
+@enduml

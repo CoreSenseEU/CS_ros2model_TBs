@@ -1,0 +1,6 @@
+gazebo:
+  ros__parameters:
+    enable_performance_metrics: true
+    publish_rate: 10.0
+    use_sim_time: true
+

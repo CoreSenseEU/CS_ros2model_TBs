@@ -1,0 +1,4 @@
+gazebo_sensor_B4_controller:
+  ros__parameters:
+    use_sim_time: true
+

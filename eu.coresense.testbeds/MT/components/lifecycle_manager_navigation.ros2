@@ -1,0 +1,54 @@
+nav2_lifecycle_manager:
+  artifacts:
+    lifecycle_manager:
+      node: lifecycle_manager_navigation
+      publishers:
+        'bond':
+          type: 'bond/msg/Status'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'diagnostics':
+          type: 'diagnostic_msgs/msg/DiagnosticArray'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'bond':
+          type: 'bond/msg/Status'
+      serviceservers:
+        'lifecycle_manager_navigation/is_active':
+          type: 'std_srvs/srv/Trigger'
+        'lifecycle_manager_navigation/manage_nodes':
+          type: 'nav2_msgs/srv/ManageLifecycleNodes'
+      parameters:
+        '/bond_disable_heartbeat_timeout':
+          type: Boolean
+          value: false
+        'attempt_respawn_reconnection':
+          type: Boolean
+          value: true
+        'autostart':
+          type: Boolean
+          value: true
+        'bond_respawn_max_duration':
+          type: Double
+          value: 10.0
+        'bond_timeout':
+          type: Double
+          value: 15.0
+        'diagnostic_updater.period':
+          type: Double
+          value: 1.0
+        'node_names':
+          type: Array[String]
+          value: ['map_server', 'amcl', 'controller_server', 'planner_server', 'behavior_server', 'bt_navigator']
+        'use_sim_time':
+          type: Boolean
+          value: false

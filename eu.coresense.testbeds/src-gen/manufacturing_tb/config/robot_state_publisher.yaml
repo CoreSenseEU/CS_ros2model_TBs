@@ -1,0 +1,7 @@
+robot_state_publisher:
+  ros__parameters:
+    frame_prefix: 
+    ignore_timestamp: false
+    publish_frequency: 20.0
+    use_sim_time: true
+

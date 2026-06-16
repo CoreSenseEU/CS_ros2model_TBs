@@ -1,8 +1,0 @@
-PackageSet {
-    Package waypoint_navigation_msgs {
-        Specs {
-            ActionSpec NavigateToWp {}
-            
-        }
-    }
-}

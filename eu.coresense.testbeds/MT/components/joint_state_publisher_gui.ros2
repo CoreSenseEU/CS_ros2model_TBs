@@ -1,0 +1,46 @@
+joint_state_publisher_gui:
+  artifacts:
+    joint_state_publisher_gui:
+      node: joint_state_publisher_gui
+      publishers:
+        'kmriiwa/arm/joint_states':
+          type: 'sensor_msgs/msg/JointState'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'clock':
+          type: 'rosgraph_msgs/msg/Clock'
+        'robot_description':
+          type: 'std_msgs/msg/String'
+      parameters:
+        'delta':
+          type: Double
+          value: 0.0
+        'publish_default_efforts':
+          type: Boolean
+          value: false
+        'publish_default_positions':
+          type: Boolean
+          value: true
+        'publish_default_velocities':
+          type: Boolean
+          value: false
+        'rate':
+          type: Integer
+          value: 10
+        'source_list':
+          type: Array[String]
+          value: ['']
+        'use_mimic_tags':
+          type: Boolean
+          value: true
+        'use_sim_time':
+          type: Boolean
+          value: true
+        'use_smallest_joint_limits':
+          type: Boolean
+          value: true

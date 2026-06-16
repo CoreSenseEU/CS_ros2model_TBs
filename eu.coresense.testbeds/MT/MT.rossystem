@@ -1,0 +1,462 @@
+manufacturing_tb:
+  nodes:
+    robot_state_publisher:
+      from: "robot_state_publisher.robot_state_publisher"
+      interfaces:
+        - "robot_description": pub-> "robot_state_publisher::robot_description"
+        - "tf": pub-> "robot_state_publisher::tf"
+        - "tf_static": pub-> "robot_state_publisher::tf_static"
+        - "clock": sub-> "robot_state_publisher::clock"
+        - "kmriiwa/arm/joint_states": sub-> "robot_state_publisher::kmriiwa/arm/joint_states"
+      parameters:
+        - "frame_prefix": "robot_state_publisher::frame_prefix"
+          value: ""
+        - "ignore_timestamp": "robot_state_publisher::ignore_timestamp"
+          value: false
+        - "publish_frequency": "robot_state_publisher::publish_frequency"
+          value: 20.0
+        - "use_sim_time": "robot_state_publisher::use_sim_time"
+          value: true
+    "joint_state_publisher_gui":
+      from: "joint_state_publisher_gui.joint_state_publisher_gui"
+      interfaces:
+        - "kmriiwa/arm/joint_states": pub-> "joint_state_publisher_gui::kmriiwa/arm/joint_states"
+        - "clock": sub-> "joint_state_publisher_gui::clock"
+        - "robot_description": sub-> "joint_state_publisher_gui::robot_description"
+      parameters:
+        - "delta": "joint_state_publisher_gui::delta"
+          value: 0.0
+        - "publish_default_efforts": "joint_state_publisher_gui::publish_default_efforts"
+          value: false
+        - "publish_default_positions": "joint_state_publisher_gui::publish_default_positions"
+          value: true
+        - "publish_default_velocities": "joint_state_publisher_gui::publish_default_velocities"
+          value: false
+        - "rate": "joint_state_publisher_gui::rate"
+          value: 10
+        - "source_list": "joint_state_publisher_gui::source_list"
+          value: ['']
+        - "use_mimic_tags": "joint_state_publisher_gui::use_mimic_tags"
+          value: true
+        - "use_sim_time": "joint_state_publisher_gui::use_sim_time"
+          value: true
+        - "use_smallest_joint_limits": "joint_state_publisher_gui::use_smallest_joint_limits"
+          value: true
+    "bt_navigator":
+      from: "nav2_bt_navigator.bt_navigator"
+      interfaces:
+        - "bt_navigator/transition_event": pub-> "bt_navigator::bt_navigator/transition_event"
+        - "bt_navigator/change_state": ss-> "bt_navigator::bt_navigator/change_state"
+        - "bt_navigator/get_available_states": ss-> "bt_navigator::bt_navigator/get_available_states"
+        - "bt_navigator/get_available_transitions": ss-> "bt_navigator::bt_navigator/get_available_transitions"
+        - "bt_navigator/get_state": ss-> "bt_navigator::bt_navigator/get_state"
+        - "bt_navigator/get_transition_graph": ss-> "bt_navigator::bt_navigator/get_transition_graph"
+    "relay":
+      from: "topic_tools.relay"
+      interfaces:
+        - "cmd_vel": pub-> "relay::cmd_vel"
+        - "kmriiwa/base/command/cmd_vel": sub-> "relay::kmriiwa/base/command/cmd_vel"
+    "gazebo":
+      from: "gazebo.gazebo"
+      interfaces:
+        - "clock": pub-> "gazebo::clock"
+        - "performance_metrics": pub-> "gazebo::performance_metrics"
+        - "sub_clock": sub-> "gazebo::clock"
+        - "pause_physics": ss-> "gazebo::pause_physics"
+        - "reset_simulation": ss-> "gazebo::reset_simulation"
+        - "reset_world": ss-> "gazebo::reset_world"
+        - "unpause_physics": ss-> "gazebo::unpause_physics"
+      parameters:
+        - "enable_performance_metrics": "gazebo::enable_performance_metrics"
+          value: true
+        - "publish_rate": "gazebo::publish_rate"
+          value: 10.0
+        - "use_sim_time": "gazebo::use_sim_time"
+          value: true
+    "gazebo_sensor_B1_controller":
+      from: "gazebo_sensor_b1_controller.gazebo_sensor_B1_controller"
+      interfaces:
+        - "kmriiwa/base/state/LaserB1Scan": pub-> "gazebo_sensor_B1_controller::kmriiwa/base/state/LaserB1Scan"
+        - "clock": sub-> "gazebo_sensor_B1_controller::clock"
+    "gazebo_sensor_B4_controller":
+      from: "gazebo_sensor_b4_controller.gazebo_sensor_B4_controller"
+      interfaces:
+        - "kmriiwa/base/state/LaserB4Scan": pub-> "gazebo_sensor_B4_controller::kmriiwa/base/state/LaserB4Scan"
+        - "clock": sub-> "gazebo_sensor_B4_controller::clock"
+      parameters:
+        - "use_sim_time": "gazebo_sensor_B4_controller::use_sim_time"
+          value: true
+    "planar_move":
+      from: "planar_move.planar_move"
+      interfaces:
+        - "odom": pub-> "planar_move::odom"
+        - "tf": pub-> "planar_move::tf"
+        - "clock": sub-> "planar_move::clock"
+        - "cmd_vel": sub-> "planar_move::cmd_vel"
+    "gazebo_ros_joint_state_publisher":
+      from: "gazebo_ros_joint_state_publisher.gazebo_ros_joint_state_publisher"
+      interfaces:
+        - "joint_states": pub-> "gazebo_ros_joint_state_publisher::joint_states"
+        - "clock": sub-> "gazebo_ros_joint_state_publisher::clock"
+    "laserscan_multi_merger":
+      from: "ira_laser_tools.laserscan_multi_merger"
+      interfaces:
+        - "merged_cloud": pub-> "laserscan_multi_merger::merged_cloud"
+        - "scan_multi": pub-> "laserscan_multi_merger::scan_multi"
+        - "kmriiwa/base/state/LaserB1Scan": sub-> "laserscan_multi_merger::kmriiwa/base/state/LaserB1Scan"
+        - "kmriiwa/base/state/LaserB4Scan": sub-> "laserscan_multi_merger::kmriiwa/base/state/LaserB4Scan"
+    "transform_listener_impl_63dab121a590":
+      from: "transform_listener_impl.transform_listener_impl"
+      interfaces:
+        - "tf": sub-> "transform_listener_impl::tf"
+        - "tf_static": sub-> "transform_listener_impl::tf_static"
+    "transform_listener_impl_586cb636ca10":
+      from: "transform_listener_impl.transform_listener_impl"
+      interfaces:
+        - "tf": sub-> "transform_listener_impl::tf"
+        - "tf_static": sub-> "transform_listener_impl::tf_static"
+    "map_server":
+      from: "nav2_map_server.map_server"
+      interfaces:
+        - "bond": pub-> "map_server::bond"
+        - "map": pub-> "map_server::map"
+        - "map_server/transition_event": pub-> "map_server::map_server/transition_event"
+        - "sub_bond": sub-> "map_server::bond"
+        - "map_server/change_state": ss-> "map_server::map_server/change_state"
+        - "map_server/get_available_states": ss-> "map_server::map_server/get_available_states"
+        - "map_server/get_available_transitions": ss-> "map_server::map_server/get_available_transitions"
+        - "map_server/get_state": ss-> "map_server::map_server/get_state"
+        - "map_server/get_transition_graph": ss-> "map_server::map_server/get_transition_graph"
+        - "map_server/load_map": ss-> "map_server::map_server/load_map"
+        - "map_server/map": ss-> "map_server::map_server/map"
+    "amcl":
+      from: "nav2_amcl.amcl"
+      interfaces:
+        - "amcl/transition_event": pub-> "amcl::amcl/transition_event"
+        - "amcl_pose": pub-> "amcl::amcl_pose"
+        - "bond": pub-> "amcl::bond"
+        - "particle_cloud": pub-> "amcl::particle_cloud"
+        - "tf": pub-> "amcl::tf"
+        - "sub_bond": sub-> "amcl::bond"
+        - "initialpose": sub-> "amcl::initialpose"
+        - "map": sub-> "amcl::map"
+        - "scan_multi": sub-> "amcl::scan_multi"
+        - "amcl/change_state": ss-> "amcl::amcl/change_state"
+        - "amcl/get_available_states": ss-> "amcl::amcl/get_available_states"
+        - "amcl/get_available_transitions": ss-> "amcl::amcl/get_available_transitions"
+        - "amcl/get_state": ss-> "amcl::amcl/get_state"
+        - "amcl/get_transition_graph": ss-> "amcl::amcl/get_transition_graph"
+        - "reinitialize_global_localization": ss-> "amcl::reinitialize_global_localization"
+        - "request_nomotion_update": ss-> "amcl::request_nomotion_update"
+        - "set_initial_pose": ss-> "amcl::set_initial_pose"
+    "controller_server":
+      from: "nav2_controller.controller_server"
+      interfaces:
+        - "bond": pub-> "controller_server::bond"
+        - "controller_server/transition_event": pub-> "controller_server::controller_server/transition_event"
+        - "kmriiwa/base/command/cmd_vel": pub-> "controller_server::kmriiwa/base/command/cmd_vel"
+        - "trajectories": pub-> "controller_server::trajectories"
+        - "transformed_global_plan": pub-> "controller_server::transformed_global_plan"
+        - "sub_bond": sub-> "controller_server::bond"
+        - "odom": sub-> "controller_server::odom"
+        - "speed_limit": sub-> "controller_server::speed_limit"
+        - "follow_path": as-> "controller_server::follow_path"
+        - "controller_server/change_state": ss-> "controller_server::controller_server/change_state"
+        - "controller_server/get_available_states": ss-> "controller_server::controller_server/get_available_states"
+        - "controller_server/get_available_transitions": ss-> "controller_server::controller_server/get_available_transitions"
+        - "controller_server/get_state": ss-> "controller_server::controller_server/get_state"
+        - "controller_server/get_transition_graph": ss-> "controller_server::controller_server/get_transition_graph"
+    "planner_server":
+      from: "nav2_planner.planner_server"
+      interfaces:
+        - "bond": pub-> "planner_server::bond"
+        - "plan": pub-> "planner_server::plan"
+        - "planner_server/transition_event": pub-> "planner_server::planner_server/transition_event"
+        - "unsmoothed_plan": pub-> "planner_server::unsmoothed_plan"
+        - "sub_bond": sub-> "planner_server::bond"
+        - "compute_path_through_poses": as-> "planner_server::compute_path_through_poses"
+        - "compute_path_to_pose": as-> "planner_server::compute_path_to_pose"
+        - "is_path_valid": ss-> "planner_server::is_path_valid"
+        - "planner_server/change_state": ss-> "planner_server::planner_server/change_state"
+        - "planner_server/get_available_states": ss-> "planner_server::planner_server/get_available_states"
+        - "planner_server/get_available_transitions": ss-> "planner_server::planner_server/get_available_transitions"
+        - "planner_server/get_state": ss-> "planner_server::planner_server/get_state"
+        - "planner_server/get_transition_graph": ss-> "planner_server::planner_server/get_transition_graph"
+
+
+    "transform_listener_impl_62307b87cbb0":
+      from: "transform_listener_impl.transform_listener_impl"
+      interfaces:
+        - "tf": sub-> "transform_listener_impl::tf"
+        - "tf_static": sub-> "transform_listener_impl::tf_static"
+    "behavior_server":
+      from: "nav2_behaviors.behavior_server"
+      interfaces:
+        - "behavior_server/transition_event": pub-> "behavior_server::behavior_server/transition_event"
+        - "bond": pub-> "behavior_server::bond"
+        - "cmd_vel": pub-> "behavior_server::cmd_vel"
+        - "sub_bond": sub-> "behavior_server::bond"
+        - "local_costmap/costmap_raw": sub-> "behavior_server::local_costmap/costmap_raw"
+        - "local_costmap/published_footprint": sub-> "behavior_server::local_costmap/published_footprint"
+        - "backup": as-> "behavior_server::backup"
+        - "drive_on_heading": as-> "behavior_server::drive_on_heading"
+        - "spin": as-> "behavior_server::spin"
+        - "wait": as-> "behavior_server::wait"
+        - "behavior_server/change_state": ss-> "behavior_server::behavior_server/change_state"
+        - "behavior_server/get_available_states": ss-> "behavior_server::behavior_server/get_available_states"
+        - "behavior_server/get_available_transitions": ss-> "behavior_server::behavior_server/get_available_transitions"
+        - "behavior_server/get_state": ss-> "behavior_server::behavior_server/get_state"
+        - "behavior_server/get_transition_graph": ss-> "behavior_server::behavior_server/get_transition_graph"
+    "transform_listener_impl_591884f5efa0":
+      from: "transform_listener_impl.transform_listener_impl"
+      interfaces:
+        - "tf": sub-> "transform_listener_impl::tf"
+        - "tf_static": sub-> "transform_listener_impl::tf_static"
+    "bt_navigator":
+      from: "nav2_bt_navigator.bt_navigator"
+      interfaces:
+        - "bt_navigator/transition_event": pub-> "bt_navigator::bt_navigator/transition_event"
+        - "bt_navigator/change_state": ss-> "bt_navigator::bt_navigator/change_state"
+        - "bt_navigator/get_available_states": ss-> "bt_navigator::bt_navigator/get_available_states"
+        - "bt_navigator/get_available_transitions": ss-> "bt_navigator::bt_navigator/get_available_transitions"
+        - "bt_navigator/get_state": ss-> "bt_navigator::bt_navigator/get_state"
+        - "bt_navigator/get_transition_graph": ss-> "bt_navigator::bt_navigator/get_transition_graph"
+    "bt_navigator_navigate_to_pose":
+      from: "bt_navigator_navigate_to_pose.bt_navigator_navigate_to_pose_rclcpp_node"
+      interfaces:
+        - "behavior_tree_log": pub-> "bt_navigator_navigate_to_pose::behavior_tree_log"
+        - "backup": ac-> "bt_navigator_navigate_to_pose::backup"
+        - "compute_path_to_pose": ac-> "bt_navigator_navigate_to_pose::compute_path_to_pose"
+        - "follow_path": ac-> "bt_navigator_navigate_to_pose::follow_path"
+        - "spin": ac-> "bt_navigator_navigate_to_pose::spin"
+        - "wait": ac-> "bt_navigator_navigate_to_pose::wait"
+    "bt_navigator_navigate_through_poses":
+      from: "bt_navigator_navigate_through_poses.bt_navigator_navigate_through_poses_rclcpp_node"
+      interfaces:
+        - "behavior_tree_log": pub-> "bt_navigator_navigate_through_poses::behavior_tree_log"
+        - "backup": ac-> "bt_navigator_navigate_through_poses::backup"
+        - "compute_path_through_poses": ac-> "bt_navigator_navigate_through_poses::compute_path_through_poses"
+        - "follow_path": ac-> "bt_navigator_navigate_through_poses::follow_path"
+        - "spin": ac-> "bt_navigator_navigate_through_poses::spin"
+        - "wait": ac-> "bt_navigator_navigate_through_poses::wait"
+    "robot_state_publisher":
+      from: "robot_state_publisher.robot_state_publisher"
+      interfaces:
+        - "robot_description": pub-> "robot_state_publisher::robot_description"
+        - "joint_states": sub-> "robot_state_publisher::joint_states"
+    "robot_description_publisher":
+      from: "robot_state_publisher.robot_state_publisher"
+      interfaces:
+        - "robot_description": pub-> "robot_state_publisher::robot_description"
+        - "clock": pub-> "robot_state_publisher::c"
+        - "joint_states": sub-> "robot_state_publisher::joint_states"
+    "rviz":
+      from: "rviz2.rviz"
+      interfaces:
+        - "clicked_point": pub-> "rviz2::clicked_point"
+        - "initialpose": pub-> "rviz2::initialpose"
+        - "move_base_simple/goal": pub-> "rviz2::move_base_simple/goal"
+        - "global_costmap/costmap": sub-> "rviz2::global_costmap/costmap"
+        - "global_costmap/costmap_updates": sub-> "rviz2::global_costmap/costmap_updates"
+        - "kmriiwa/base/state/LaserB1Scan": sub-> "rviz2::kmriiwa/base/state/LaserB1Scan"
+        - "kmriiwa/base/state/LaserB4Scan": sub-> "rviz2::kmriiwa/base/state/LaserB4Scan"
+        - "kmriiwa/base/state/odom": sub-> "rviz2::kmriiwa/base/state/odom"
+        - "kmriiwa/robot_description": sub-> "rviz2::kmriiwa/robot_description"
+        - "plan": sub-> "rviz2::plan"
+        - "received_global_plan": sub-> "rviz2::received_global_plan"
+        - "scan_multi": sub-> "rviz2::scan_multi"
+        - "transformed_global_plan": sub-> "rviz2::transformed_global_plan"
+    "transform_listener_impl_5f3f2f2aa6c0":
+      from: "transform_listener_impl.transform_listener_impl"
+      interfaces:
+        - "tf": sub-> "transform_listener_impl::tf"
+        - "tf_static": sub-> "transform_listener_impl::tf_static"
+    "static_transform_publisher_vS7Rn4YQfVmDReBi":
+      from: "static_transform_publisher.static_transform_publisher"
+      interfaces:
+        - "tf_static": pub-> "static_transform_publisher::tf_static"
+      parameters:
+        - "child_frame_id": "static_transform_publisher::child_frame_id"
+          value: "kmriiwa_odom"
+        - "frame_id": "static_transform_publisher::frame_id"
+          value: "map"
+        - "rotation.w": "static_transform_publisher::rotation.w"
+          value: 1.0
+        - "rotation.x": "static_transform_publisher::rotation.x"
+          value: 0.0
+        - "rotation.y": "static_transform_publisher::rotation.y"
+          value: 0.0
+        - "rotation.z": "static_transform_publisher::rotation.z"
+          value: 0.0
+        - "translation.x": "static_transform_publisher::translation.x"
+          value: 0.0
+        - "translation.y": "static_transform_publisher::translation.y"
+          value: 0.0
+        - "translation.z": "static_transform_publisher::translation.z"
+          value: 0.0
+        - "use_sim_time": "static_transform_publisher::use_sim_time"
+          value: false
+    "static_transform_publisher_BB3LgctvQJmC8ZBZ":
+      from: "static_transform_publisher.static_transform_publisher"
+      interfaces:
+        - "tf_static": pub-> "static_transform_publisher::tf_static"
+      parameters:
+        - "child_frame_id": "static_transform_publisher::child_frame_id"
+          value: "kmriiwa_base_footprint"
+        - "frame_id": "static_transform_publisher::frame_id"
+          value: "kmriiwa_odom"
+        - "rotation.w": "static_transform_publisher::rotation.w"
+          value: 1.0
+        - "rotation.x": "static_transform_publisher::rotation.x"
+          value: 0.0
+        - "rotation.y": "static_transform_publisher::rotation.y"
+          value: 0.0
+        - "rotation.z": "static_transform_publisher::rotation.z"
+          value: 0.0
+        - "translation.x": "static_transform_publisher::translation.x"
+          value: 0.0
+        - "translation.y": "static_transform_publisher::translation.y"
+          value: 0.0
+        - "translation.z": "static_transform_publisher::translation.z"
+          value: 0.0
+        - "use_sim_time": "static_transform_publisher::use_sim_time"
+          value: false
+    "static_transform_publisher_rk0xEkSw7GX3BxqV":
+      from: "static_transform_publisher.static_transform_publisher"
+      interfaces:
+        - "tf_static": pub-> "static_transform_publisher::tf_static"
+    "global_costmap/global_costmap":
+      from: "global_costmap.global_costmap"
+      interfaces:
+        - "costmap": pub-> "global_costmap::costmap"
+        - "costmap_raw": pub-> "global_costmap::costmap_raw"
+        - "costmap_updates": pub-> "global_costmap::costmap_updates"
+        - "global_costmap/transition_event": pub-> "global_costmap::global_costmap/transition_event"
+        - "published_footprint": pub-> "global_costmap::published_footprint"
+        - "footprint": sub-> "global_costmap::footprint"
+        - "clear_around_global_costmap": ss-> "global_costmap::clear_around_global_costmap"
+        - "clear_entirely_global_costmap": ss-> "global_costmap::clear_entirely_global_costmap"
+        - "clear_except_global_costmap": ss-> "global_costmap::clear_except_global_costmap"
+        - "get_costmap": ss-> "global_costmap::get_costmap"
+        - "global_costmap/change_state": ss-> "global_costmap::global_costmap/change_state"
+        - "global_costmap/get_available_states": ss-> "global_costmap::global_costmap/get_available_states"
+        - "global_costmap/get_available_transitions": ss-> "global_costmap::global_costmap/get_available_transitions"
+        - "global_costmap/get_state": ss-> "global_costmap::global_costmap/get_state"
+        - "global_costmap/get_transition_graph": ss-> "global_costmap::global_costmap/get_transition_graph"
+    "local_costmap/local_costmap":
+      from: "local_costmap.local_costmap"
+      interfaces:
+        - "costmap": pub-> "local_costmap::costmap"
+        - "costmap_raw": pub-> "local_costmap::costmap_raw"
+        - "costmap_updates": pub-> "local_costmap::costmap_updates"
+        - "local_costmap/transition_event": pub-> "local_costmap::local_costmap/transition_event"
+        - "published_footprint": pub-> "local_costmap::published_footprint"
+        - "footprint": sub-> "local_costmap::footprint"
+        - "clear_around_local_costmap": ss-> "local_costmap::clear_around_local_costmap"
+        - "clear_entirely_local_costmap": ss-> "local_costmap::clear_entirely_local_costmap"
+        - "clear_except_local_costmap": ss-> "local_costmap::clear_except_local_costmap"
+        - "get_costmap": ss-> "local_costmap::get_costmap"
+        - "local_costmap/change_state": ss-> "local_costmap::local_costmap/change_state"
+        - "local_costmap/get_available_states": ss-> "local_costmap::local_costmap/get_available_states"
+        - "local_costmap/get_available_transitions": ss-> "local_costmap::local_costmap/get_available_transitions"
+        - "local_costmap/get_state": ss-> "local_costmap::local_costmap/get_state"
+        - "local_costmap/get_transition_graph": ss-> "local_costmap::local_costmap/get_transition_graph"
+    "lifecycle_manager_navigation":
+      from: "nav2_lifecycle_manager.lifecycle_manager_navigation"
+      interfaces:
+        - "bond": pub-> "lifecycle_manager::bond"
+        - "diagnostics": pub-> "lifecycle_manager::diagnostics"
+        - "sub_bond": sub-> "lifecycle_manager::bond"
+        - "lifecycle_manager_navigation/is_active": ss-> "lifecycle_manager::lifecycle_manager_navigation/is_active"
+        - "lifecycle_manager_navigation/manage_nodes": ss-> "lifecycle_manager::lifecycle_manager_navigation/manage_nodes"
+
+
+#    "navigation_cognition_master":
+#      from: "cs4mt_navigation_cognition.navigation_cognitive_master"
+#      interfaces:
+#        - "cascade_lifecycle_activations": pub-> "navigation_cognitive_master::cascade_lifecycle_activations"
+#        - "cascade_lifecycle_states": pub-> "navigation_cognitive_master::cascade_lifecycle_states"
+#        - "navigation_cognition_master/transition_event": pub-> "navigation_cognitive_master::navigation_cognition_master/transition_event"
+#        - "sub_cascade_lifecycle_activations": sub-> "navigation_cognitive_master::cascade_lifecycle_activations"
+#        - "sub_cascade_lifecycle_states": sub-> "navigation_cognitive_master::cascade_lifecycle_states"
+#        - "goal_criticality": sub-> "navigation_cognitive_master::goal_criticality"
+#        - "navigation_cognition_master/change_state": ss-> "navigation_cognitive_master::navigation_cognition_master/change_state"
+#        - "navigation_cognition_master/get_available_states": ss-> "navigation_cognitive_master::navigation_cognition_master/get_available_states"
+#        - "navigation_cognition_master/get_available_transitions": ss-> "navigation_cognitive_master::navigation_cognition_master/get_available_transitions"
+#        - "navigation_cognition_master/get_state": ss-> "navigation_cognitive_master::navigation_cognition_master/get_state"
+#        - "navigation_cognition_master/get_transition_graph": ss-> "navigation_cognitive_master::navigation_cognition_master/get_transition_graph"
+#    "navigation_cognition_master":
+#      from: "cs4mt_navigation_cognition.navigation_cognitive_master"
+#      interfaces:
+#        - "cascade_lifecycle_activations": pub-> "navigation_cognitive_master::cascade_lifecycle_activations"
+#        - "cascade_lifecycle_states": pub-> "navigation_cognitive_master::cascade_lifecycle_states"
+#        - "navigation_cognition_master/transition_event": pub-> "navigation_cognitive_master::navigation_cognition_master/transition_event"
+#        - "sub_cascade_lifecycle_activations": sub-> "navigation_cognitive_master::cascade_lifecycle_activations"
+#        - "sub_cascade_lifecycle_states": sub-> "navigation_cognitive_master::cascade_lifecycle_states"
+#        - "goal_criticality": sub-> "navigation_cognitive_master::goal_criticality"
+#        - "navigation_cognition_master/change_state": ss-> "navigation_cognitive_master::navigation_cognition_master/change_state"
+#        - "navigation_cognition_master/get_available_states": ss-> "navigation_cognitive_master::navigation_cognition_master/get_available_states"
+#        - "navigation_cognition_master/get_available_transitions": ss-> "navigation_cognitive_master::navigation_cognition_master/get_available_transitions"
+#        - "navigation_cognition_master/get_state": ss-> "navigation_cognitive_master::navigation_cognition_master/get_state"
+#        - "navigation_cognition_master/get_transition_graph": ss-> "navigation_cognitive_master::navigation_cognition_master/get_transition_graph"
+#    "nav_goal_cognitive_module":
+#      from: "cs4mt_navigation_cognition.nav_goal_cognitive_module"
+#      interfaces:
+#        - "cascade_lifecycle_activations": pub-> "nav_goal_cognitive_module::cascade_lifecycle_activations"
+#        - "cascade_lifecycle_states": pub-> "nav_goal_cognitive_module::cascade_lifecycle_states"
+#        - "goal_criticality": pub-> "nav_goal_cognitive_module::goal_criticality"
+#        - "nav_goal_cognitive_module/transition_event": pub-> "nav_goal_cognitive_module::nav_goal_cognitive_module/transition_event"
+#        - "sub_cascade_lifecycle_activations": sub-> "nav_goal_cognitive_module::cascade_lifecycle_activations"
+#        - "sub_cascade_lifecycle_states": sub-> "nav_goal_cognitive_module::cascade_lifecycle_states"
+#        - "critical_goal": sub-> "nav_goal_cognitive_module::critical_goal"
+#        - "plan": sub-> "nav_goal_cognitive_module::plan"
+#        - "nav_goal_cognitive_module/change_state": ss-> "nav_goal_cognitive_module::nav_goal_cognitive_module/change_state"
+#        - "nav_goal_cognitive_module/get_available_states": ss-> "nav_goal_cognitive_module::nav_goal_cognitive_module/get_available_states"
+#        - "nav_goal_cognitive_module/get_available_transitions": ss-> "nav_goal_cognitive_module::nav_goal_cognitive_module/get_available_transitions"
+#        - "nav_goal_cognitive_module/get_state": ss-> "nav_goal_cognitive_module::nav_goal_cognitive_module/get_state"
+#        - "nav_goal_cognitive_module/get_transition_graph": ss-> "nav_goal_cognitive_module::nav_goal_cognitive_module/get_transition_graph"
+#      parameters:
+#        - "afferent": "nav_goal_cognitive_module::afferent"
+#          value: "nav_goal_cognitive_input"
+#        - "allow_duplicate_names": "nav_goal_cognitive_module::allow_duplicate_names"
+#          value: true
+#        - "cognitive_processing_interval": "nav_goal_cognitive_module::cognitive_processing_interval"
+#          value: 1.0
+#        - "core": "nav_goal_cognitive_module::core"
+#          value: "nav_goal_cognitive_core"
+#        - "coupling": "nav_goal_cognitive_module::coupling"
+#          value: ""
+#        - "critical_inflation_radius": "nav_goal_cognitive_module::critical_inflation_radius"
+#          value: 0.35
+#        - "criticality_confidence_threshold": "nav_goal_cognitive_module::criticality_confidence_threshold"
+#          value: 0.8
+#        - "efferent": "nav_goal_cognitive_module::efferent"
+#          value: "nav_goal_cognitive_output"
+#        - "goal_persistence_threshold": "nav_goal_cognitive_module::goal_persistence_threshold"
+#          value: 3.0
+#        - "max_reduction_percentage": "nav_goal_cognitive_module::max_reduction_percentage"
+#          value: 0.95
+#        - "meta": "nav_goal_cognitive_module::meta"
+#          value: ""
+#        - "min_radius_change_threshold": "nav_goal_cognitive_module::min_radius_change_threshold"
+#          value: 0.002
+#        - "nav_goal_cognitive_input.topics": "nav_goal_cognitive_module::nav_goal_cognitive_input.topics"
+#          value: ['/critical_goal']
+#        - "nav_goal_cognitive_input.types": "nav_goal_cognitive_module::nav_goal_cognitive_input.types"
+#          value: ['std_msgs/msg/Bool']
+#        - "nav_goal_cognitive_output.topics": "nav_goal_cognitive_module::nav_goal_cognitive_output.topics"
+#          value: ['/goal_criticality']
+#        - "nav_goal_cognitive_output.types": "nav_goal_cognitive_module::nav_goal_cognitive_output.types"
+#          value: ['std_msgs/msg/Bool']
+#        - "normal_inflation_radius": "nav_goal_cognitive_module::normal_inflation_radius"
+#          value: 0.985
+#        - "radius_update_rate": "nav_goal_cognitive_module::radius_update_rate"
+#          value: 0.3
+#        - "reduction_end_distance": "nav_goal_cognitive_module::reduction_end_distance"
+#          value: 0.005
+#        - "reduction_start_distance": "nav_goal_cognitive_module::reduction_start_distance"
+#          value: 1.5
+#        - "use_proportional_reduction": "nav_goal_cognitive_module::use_proportional_reduction"
+#          value: true
+#        - "use_sim_time": "nav_goal_cognitive_module::use_sim_time"
+#          value: false

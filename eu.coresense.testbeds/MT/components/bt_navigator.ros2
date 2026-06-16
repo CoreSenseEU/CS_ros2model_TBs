@@ -1,0 +1,115 @@
+nav2_bt_navigator:
+  artifacts:
+    bt_navigator:
+      node: bt_navigator
+      publishers:
+        'bond':
+          type: 'bond/msg/Status'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'bt_navigator/transition_event':
+          type: 'lifecycle_msgs/msg/TransitionEvent'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'bond':
+          type: 'bond/msg/Status'
+        'goal_pose':
+          type: 'geometry_msgs/msg/PoseStamped'
+        'odom':
+          type: 'nav_msgs/msg/Odometry'
+        'tf':
+          type: 'tf2_msgs/msg/TFMessage'
+        'tf_static':
+          type: 'tf2_msgs/msg/TFMessage'
+      actionservers:
+        'navigate_through_poses':
+          type: 'nav2_msgs/action/NavigateThroughPoses'
+        'navigate_to_pose':
+          type: 'nav2_msgs/action/NavigateToPose'
+      actionclients:
+        'navigate_to_pose':
+          type: 'nav2_msgs/action/NavigateToPose'
+      serviceservers:
+        'bt_navigator/change_state':
+          type: 'lifecycle_msgs/srv/ChangeState'
+        'bt_navigator/get_available_states':
+          type: 'lifecycle_msgs/srv/GetAvailableStates'
+        'bt_navigator/get_available_transitions':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'bt_navigator/get_state':
+          type: 'lifecycle_msgs/srv/GetState'
+        'bt_navigator/get_transition_graph':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+      parameters:
+        '/bond_disable_heartbeat_timeout':
+          type: Boolean
+          value: true
+        'bt_loop_duration':
+          type: Integer
+          value: 10
+        'bt_status_publish_rate':
+          type: Double
+          value: 10.0
+        'default_nav_through_poses_bt_xml':
+          type: String
+          value: "/opt/ros/humble/share/nav2_bt_navigator/behavior_trees/navigate_through_poses_w_replanning_and_recovery.xml"
+        'default_nav_to_pose_bt_xml':
+          type: String
+          value: "/opt/ros/humble/share/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml"
+        'default_server_timeout':
+          type: Integer
+          value: 20
+        'enable_groot_monitoring':
+          type: Boolean
+          value: true
+        'global_frame':
+          type: String
+          value: "map"
+        'goal_blackboard_id':
+          type: String
+          value: "goal"
+        'goals_blackboard_id':
+          type: String
+          value: "goals"
+        'groot_zmq_publisher_port':
+          type: Integer
+          value: 1666
+        'groot_zmq_server_port':
+          type: Integer
+          value: 1667
+        'odom_frame':
+          type: String
+          value: "kmriiwa_odom"
+        'odom_topic':
+          type: String
+          value: "odom"
+        'path_blackboard_id':
+          type: String
+          value: "path"
+        'plugin_lib_names':
+          type: Array[String]
+          value: ['nav2_compute_path_to_pose_action_bt_node', 'nav2_compute_path_through_poses_action_bt_node', 'nav2_follow_path_action_bt_node', 'nav2_back_up_action_bt_node', 'nav2_spin_action_bt_node', 'nav2_wait_action_bt_node', 'nav2_clear_costmap_service_bt_node', 'nav2_is_stuck_condition_bt_node', 'nav2_goal_reached_condition_bt_node', 'nav2_goal_updated_condition_bt_node', 'nav2_initial_pose_received_condition_bt_node', 'nav2_reinitialize_global_localization_service_bt_node', 'nav2_rate_controller_bt_node', 'nav2_distance_controller_bt_node', 'nav2_speed_controller_bt_node', 'nav2_truncate_path_action_bt_node', 'nav2_goal_updater_node_bt_node', 'nav2_recovery_node_bt_node', 'nav2_pipeline_sequence_bt_node', 'nav2_round_robin_node_bt_node', 'nav2_transform_available_condition_bt_node', 'nav2_time_expired_condition_bt_node', 'nav2_distance_traveled_condition_bt_node', 'nav2_single_trigger_bt_node', 'nav2_is_battery_low_condition_bt_node', 'nav2_navigate_through_poses_action_bt_node', 'nav2_navigate_to_pose_action_bt_node', 'nav2_remove_passed_goals_action_bt_node']
+        'publish_bt_status':
+          type: Boolean
+          value: true
+        'robot_base_frame':
+          type: String
+          value: "kmriiwa_base_footprint"
+        'ros__log_level':
+          type: String
+          value: "DEBUG"
+        'transform_tolerance':
+          type: Double
+          value: 0.1
+        'use_sim_time':
+          type: Boolean
+          value: false

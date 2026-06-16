@@ -1,8 +1,0 @@
-PackageSet {
-    Package follow_ros_msgs {
-        Specs {
-            ActionSpec FollowPerson {}
-            
-        }
-    }
-}

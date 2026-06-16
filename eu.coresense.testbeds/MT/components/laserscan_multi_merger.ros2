@@ -1,0 +1,26 @@
+ira_laser_tools:
+  artifacts:
+    laserscan_multi_merger:
+      node: laserscan_multi_merger
+      publishers:
+        'merged_cloud':
+          type: 'sensor_msgs/msg/PointCloud2'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: best_effort
+            durability: volatile
+        'scan_multi':
+          type: 'sensor_msgs/msg/LaserScan'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: best_effort
+            durability: volatile
+      subscribers:
+        'kmriiwa/base/state/LaserB1Scan':
+          type: 'sensor_msgs/msg/LaserScan'
+        'kmriiwa/base/state/LaserB4Scan':
+          type: 'sensor_msgs/msg/LaserScan'

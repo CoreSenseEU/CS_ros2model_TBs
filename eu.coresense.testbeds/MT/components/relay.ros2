@@ -1,0 +1,16 @@
+topic_tools:
+  artifacts:
+    relay:
+      node: relay
+      publishers:
+        'cmd_vel':
+          type: 'geometry_msgs/msg/Twist'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'kmriiwa/base/command/cmd_vel':
+          type: 'geometry_msgs/msg/Twist'

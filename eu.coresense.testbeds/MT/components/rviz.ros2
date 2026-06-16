@@ -1,0 +1,50 @@
+rviz2:
+  artifacts:
+    rviz2:
+      node: rviz
+      publishers:
+        'clicked_point':
+          type: 'geometry_msgs/msg/PointStamped'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'initialpose':
+          type: 'geometry_msgs/msg/PoseWithCovarianceStamped'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'move_base_simple/goal':
+          type: 'geometry_msgs/msg/PoseStamped'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'global_costmap/costmap':
+          type: 'nav_msgs/msg/OccupancyGrid'
+        'global_costmap/costmap_updates':
+          type: 'map_msgs/msg/OccupancyGridUpdate'
+        'kmriiwa/base/state/LaserB1Scan':
+          type: 'sensor_msgs/msg/LaserScan'
+        'kmriiwa/base/state/LaserB4Scan':
+          type: 'sensor_msgs/msg/LaserScan'
+        'kmriiwa/base/state/odom':
+          type: 'nav_msgs/msg/Odometry'
+        'kmriiwa/robot_description':
+          type: 'std_msgs/msg/String'
+        'plan':
+          type: 'nav_msgs/msg/Path'
+        'received_global_plan':
+          type: 'nav_msgs/msg/Path'
+        'scan_multi':
+          type: 'sensor_msgs/msg/LaserScan'
+        'transformed_global_plan':
+          type: 'nav_msgs/msg/Path'

@@ -1,0 +1,69 @@
+local_costmap:
+  artifacts:
+    local_costmap:
+      node: local_costmap
+      publishers:
+        'costmap':
+          type: 'nav_msgs/msg/OccupancyGrid'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'costmap_raw':
+          type: 'nav2_msgs/msg/Costmap'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'costmap_updates':
+          type: 'map_msgs/msg/OccupancyGridUpdate'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'local_costmap/transition_event':
+          type: 'lifecycle_msgs/msg/TransitionEvent'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'published_footprint':
+          type: 'geometry_msgs/msg/PolygonStamped'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+      subscribers:
+        'footprint':
+          type: 'geometry_msgs/msg/Polygon'
+        '':
+          type: 'sensor_msgs/msg/LaserScan'
+      serviceservers:
+        'clear_around_local_costmap':
+          type: 'nav2_msgs/srv/ClearCostmapAroundRobot'
+        'clear_entirely_local_costmap':
+          type: 'nav2_msgs/srv/ClearEntireCostmap'
+        'clear_except_local_costmap':
+          type: 'nav2_msgs/srv/ClearCostmapExceptRegion'
+        'get_costmap':
+          type: 'nav2_msgs/srv/GetCostmap'
+        'local_costmap/change_state':
+          type: 'lifecycle_msgs/srv/ChangeState'
+        'local_costmap/get_available_states':
+          type: 'lifecycle_msgs/srv/GetAvailableStates'
+        'local_costmap/get_available_transitions':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'local_costmap/get_state':
+          type: 'lifecycle_msgs/srv/GetState'
+        'local_costmap/get_transition_graph':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'

@@ -1,0 +1,20 @@
+gazebo_sensor_b4_controller:
+  artifacts:
+    gazebo_sensor_B4_controller:
+      node: gazebo_sensor_B4_controller
+      publishers:
+        'kmriiwa/base/state/LaserB4Scan':
+          type: 'sensor_msgs/msg/LaserScan'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'clock':
+          type: 'rosgraph_msgs/msg/Clock'
+      parameters:
+        'use_sim_time':
+          type: Boolean
+          value: true

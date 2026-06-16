@@ -1,6 +1,0 @@
-PackageSet{
-    Package unique_identifier_msgs{ Specs { 
-      TopicSpec UUID{ message { uint8[] uuid }}
-    }}
-
-  }

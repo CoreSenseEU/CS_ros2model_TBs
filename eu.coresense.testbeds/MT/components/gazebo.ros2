@@ -1,0 +1,43 @@
+gazebo:
+  artifacts:
+    gazebo:
+      node: gazebo
+      publishers:
+        'clock':
+          type: 'rosgraph_msgs/msg/Clock'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: best_effort
+            durability: volatile
+        'performance_metrics':
+          type: 'gazebo_msgs/msg/PerformanceMetrics'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'clock':
+          type: 'rosgraph_msgs/msg/Clock'
+      serviceservers:
+        'pause_physics':
+          type: 'std_srvs/srv/Empty'
+        'reset_simulation':
+          type: 'std_srvs/srv/Empty'
+        'reset_world':
+          type: 'std_srvs/srv/Empty'
+        'unpause_physics':
+          type: 'std_srvs/srv/Empty'
+      parameters:
+        'enable_performance_metrics':
+          type: Boolean
+          value: true
+        'publish_rate':
+          type: Double
+          value: 10.0
+        'use_sim_time':
+          type: Boolean
+          value: true

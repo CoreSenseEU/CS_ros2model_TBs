@@ -1,9 +1,0 @@
-PackageSet {
-    AmentPackage introduce_guest_bb_node {
-        Artifact introduce_guest_bb_node {
-            Node {
-                name introduce_guest_bb_node
-                }
-        }
-    }
-}

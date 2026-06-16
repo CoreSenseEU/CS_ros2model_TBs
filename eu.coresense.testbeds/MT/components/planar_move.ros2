@@ -1,0 +1,26 @@
+planar_move:
+  artifacts:
+    planar_move:
+      node: planar_move
+      publishers:
+        'odom':
+          type: 'nav_msgs/msg/Odometry'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'tf':
+          type: 'tf2_msgs/msg/TFMessage'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'clock':
+          type: 'rosgraph_msgs/msg/Clock'
+        'cmd_vel':
+          type: 'geometry_msgs/msg/Twist'

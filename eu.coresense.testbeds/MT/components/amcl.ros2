@@ -1,0 +1,71 @@
+nav2_amcl:
+  artifacts:
+    amcl:
+      node: amcl
+      publishers:
+        'amcl/transition_event':
+          type: 'lifecycle_msgs/msg/TransitionEvent'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'amcl_pose':
+          type: 'geometry_msgs/msg/PoseWithCovarianceStamped'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        'bond':
+          type: 'bond/msg/Status'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'particle_cloud':
+          type: 'nav2_msgs/msg/ParticleCloud'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: best_effort
+            durability: volatile
+        'tf':
+          type: 'tf2_msgs/msg/TFMessage'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+      subscribers:
+        'bond':
+          type: 'bond/msg/Status'
+        'initialpose':
+          type: 'geometry_msgs/msg/PoseWithCovarianceStamped'
+        'map':
+          type: 'nav_msgs/msg/OccupancyGrid'
+        'scan_multi':
+          type: 'sensor_msgs/msg/LaserScan'
+      serviceservers:
+        'amcl/change_state':
+          type: 'lifecycle_msgs/srv/ChangeState'
+        'amcl/get_available_states':
+          type: 'lifecycle_msgs/srv/GetAvailableStates'
+        'amcl/get_available_transitions':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'amcl/get_state':
+          type: 'lifecycle_msgs/srv/GetState'
+        'amcl/get_transition_graph':
+          type: 'lifecycle_msgs/srv/GetAvailableTransitions'
+        'reinitialize_global_localization':
+          type: 'std_srvs/srv/Empty'
+        'request_nomotion_update':
+          type: 'std_srvs/srv/Empty'
+        'set_initial_pose':
+          type: "nav_msgs/srv/SetInitialPose"

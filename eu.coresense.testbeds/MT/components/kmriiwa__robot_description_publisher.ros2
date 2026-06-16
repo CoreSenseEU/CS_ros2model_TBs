@@ -1,0 +1,48 @@
+robot_state_publisher:
+  artifacts:
+    robot_state_publisher:
+      node: robot_description_publisher
+      publishers:
+        'robot_description':
+          type: 'std_msgs/msg/String'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+        '':
+          type: 'tf2_msgs/msg/TFMessage'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: volatile
+        'c':
+          type: 'tf2_msgs/msg/TFMessage'
+          qos:
+          # profile:
+          # history: UNKNOWN
+          # depth:
+            reliability: reliable
+            durability: transient_local
+      subscribers:
+        'joint_states':
+          type: 'sensor_msgs/msg/JointState'
+      parameters:
+        'frame_prefix':
+          type: String
+          value: ""
+        'ignore_timestamp':
+          type: Boolean
+          value: false
+        'publish_frequency':
+          type: Double
+          value: 20.0
+        'robot_description':
+          type: String
+          value: ""
+        'use_sim_time':
+          type: Boolean
+          value: false
